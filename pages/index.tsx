@@ -38,7 +38,7 @@ const Home: NextPage = () => {
         setCurrentTab(newTab);
     }
 
-    const [bunny,changeBunnyState]=useState({
+    const [bunny,changeBunnyState]=useState({ //bunny и setBunny (!!!!!) не коверкай имена, путая все. Сеттер задается как set
         base:{
             type:'base',
             name:'Aluminum_bunny20',
@@ -85,12 +85,22 @@ const Home: NextPage = () => {
         },
     })
 
+
+
+
     const changeBase =(item:InventoryItemInerface)=>{
-        let temp=bunny;
+        let temp=bunny; //это что за бред тут написан? Обьект копируется через {...bunny}
         bunny.base=item;
-        changeBunnyState((prev)=>prev=temp);
+        changeBunnyState((prev)=>prev=temp); //мда. Ты зачем-то задаешь новый стейт как (prev=temp) - результат операции присовения.
         console.log(bunny.base.name);
     }
+    //стиль кода пздц. Бей себя по рукам за копипасту.
+
+    //вместо тысячи функций - вот
+    const attachItemToBunny = (place:"Base"|"Eyes"|"Mouth"|"Etc",item:InventoryItemInerface){
+        return changeBunnyState({...bunny,[place]:item})
+    }
+
 
     const changeEyes =(item:InventoryItemInerface)=>{
         let temp=bunny;
