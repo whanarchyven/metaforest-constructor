@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.tab-container{
+    display: grid;
+    grid-template-columns: repeat(12,1fr);
+    grid-gap: 5em;
+    overflow-x: scroll;
+    background: #565656;
+    font-size: 1.3em;
+}
+
+.active-tab{
+    color: white;
+    display: inline-block;
+    width: 100px;
+    text-decoration: underline;
+    text-align: center;
+}
+
+.deactive-tab{
+    color: #AAAAAA;
+    display: inline-block;
+    width: 100px;
+    text-align: center;
+}
+
+.tab-container::-webkit-scrollbar {
+    width: 12px;               /* ширина scrollbar */
+    height: 0px;
+}
+.tab-container::-webkit-scrollbar-track {
+    background: transparent;        /* цвет дорожки */
+}
+.tab-container::-webkit-scrollbar-thumb {
+    background-color: white;    /* цвет плашки */
+    border-radius: 20px;       /* закругления плашки */ /* padding вокруг плашки */
+}
