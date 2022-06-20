@@ -2,8 +2,8 @@ import React, {useState} from 'react';
 
 
 interface categoryBarInterface{
-    currenTab:string,
-    setCurrentTab:(newTab:string)=>void,
+    currenTab:string|"base"|"eyes"|"mouth"|"left"|"right"|"necklace"|"face"|"clothes"|"hat"|"overhead"|"ears",
+    setCurrentTab:(newTab:string|"base"|"eyes"|"mouth"|"left"|"right"|"necklace"|"face"|"clothes"|"hat"|"overhead"|"ears")=>void,
 }
 
 const CategoryBar = ({currenTab,setCurrentTab}:categoryBarInterface) => {

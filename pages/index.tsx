@@ -6,39 +6,16 @@ import CategoryBar from "../components/CategoryBar";
 import {useEffect, useState} from "react";
 import BunnyGeneration from "../components/BunnyGeneration";
 import InventoryCards from "../components/InventoryCards";
-
-
-interface InventoryItemInerface{
-    type:string,
-    name:string,
-}
-
-interface BunnyInterface{
-        base?:InventoryItemInerface,
-        mouth?:InventoryItemInerface,
-        eyes?:InventoryItemInerface,
-        ears?:InventoryItemInerface,
-        face?:InventoryItemInerface,
-        hat?:InventoryItemInerface,
-        clothes?:InventoryItemInerface,
-        left?:InventoryItemInerface,
-        right?:InventoryItemInerface,
-        necklace?:InventoryItemInerface,
-        overhead?:InventoryItemInerface,
-}
-
-interface inventoryInterface{
-    inventory:[InventoryItemInerface],
-}
-
+import InventoryItemInterface from "../interfaces/InventoryItem";
+import BunnyInterface from "../interfaces/BunnyInterface";
 
 const Home: NextPage = () => {
+
     const [currenTab,setCurrentTab]=useState('base');
-    const changeCurrentTab= (newTab:string)=>{
+    const changeCurrentTab= (newTab:string|"base"|"eyes"|"mouth"|"left"|"right"|"necklace"|"face"|"clothes"|"hat"|"overhead"|"ears")=>{
         setCurrentTab(newTab);
     }
-
-    const [bunny,changeBunnyState]=useState({ //bunny и setBunny (!!!!!) не коверкай имена, путая все. Сеттер задается как set
+    const initialBunny={
         base:{
             type:'base',
             name:'Aluminum_bunny20',
@@ -83,80 +60,25 @@ const Home: NextPage = () => {
             type:'overhead',
             name:'',
         },
-    })
-
-
-
-
-    const changeBase =(item:InventoryItemInerface)=>{
-        let temp=bunny; //это что за бред тут написан? Обьект копируется через {...bunny}
-        bunny.base=item;
-        changeBunnyState((prev)=>prev=temp); //мда. Ты зачем-то задаешь новый стейт как (prev=temp) - результат операции присовения.
-        console.log(bunny.base.name);
     }
+
+    const [bunny,setBunny]=useState(initialBunny);
+
+
+
+
+    // const changeBase =(item:InventoryItemInerface)=>{
+    //     let temp=bunny; //это что за бред тут написан? Обьект копируется через {...bunny}
+    //     bunny.base=item;
+    //     setBunny((prev)=>prev=temp); //мда. Ты зачем-то задаешь новый стейт как (prev=temp) - результат операции присовения.
+    //     console.log(bunny.base.name);
+    // }
     //стиль кода пздц. Бей себя по рукам за копипасту.
 
     //вместо тысячи функций - вот
-    const attachItemToBunny = (place:"Base"|"Eyes"|"Mouth"|"Etc",item:InventoryItemInerface){
-        return changeBunnyState({...bunny,[place]:item})
+    const attachItemToBunny = (place:string|"base"|"eyes"|"mouth"|"left"|"right"|"necklace"|"face"|"clothes"|"hat"|"overhead"|"ears",item:InventoryItemInterface)=>{
+        return setBunny({...bunny,[place]:item})
     }
-
-
-    const changeEyes =(item:InventoryItemInerface)=>{
-        let temp=bunny;
-        bunny.eyes=item;
-        changeBunnyState((prev)=>prev=temp);
-    }
-    const changeMouth =(item:InventoryItemInerface)=>{
-        let temp=bunny;
-        bunny.mouth=item;
-        changeBunnyState((prev)=>prev=temp);
-    }
-    const changeEars =(item:InventoryItemInerface)=>{
-        let temp=bunny;
-        bunny.ears=item;
-        changeBunnyState((prev)=>prev=temp);
-    }
-
-    const changeHat =(item:InventoryItemInerface)=>{
-        let temp=bunny;
-        bunny.hat=item;
-        changeBunnyState((prev)=>prev=temp);
-    }
-
-    const changeClothes =(item:InventoryItemInerface)=>{
-        let temp=bunny;
-        bunny.clothes=item;
-        changeBunnyState((prev)=>prev=temp);
-    }
-    const changeLeft =(item:InventoryItemInerface)=>{
-        let temp=bunny;
-        bunny.left=item;
-        changeBunnyState((prev)=>prev=temp);
-    }
-    const changeRight =(item:InventoryItemInerface)=>{
-        let temp=bunny;
-        bunny.right=item;
-        changeBunnyState((prev)=>prev=temp);
-    }
-
-    const changeNecklace =(item:InventoryItemInerface)=>{
-        let temp=bunny;
-        bunny.necklace=item;
-        changeBunnyState((prev)=>prev=temp);
-    }
-    const changeFace =(item:InventoryItemInerface)=>{
-        let temp=bunny;
-        bunny.face=item;
-        changeBunnyState((prev)=>prev=temp);
-    }
-    const changeOverhead =(item:InventoryItemInerface)=>{
-        let temp=bunny;
-        bunny.overhead=item;
-        changeBunnyState((prev)=>prev=temp);
-
-    }
-
 
 
     const inventory=[
@@ -230,6 +152,312 @@ const Home: NextPage = () => {
         {
             type:'base',
             name:'Silver_bunny_e30'
+        },{
+            type:'clothes',
+            name:'Tape_Gray10'
+        },{
+            type:'clothes',
+            name:'Tape_pinck10'
+        },{
+            type:'clothes',
+            name:'Tape_black10'
+        },{
+            type:'clothes',
+            name:'Business_suit10'
+        },{
+            type:'clothes',
+            name:'Batman3'
+        },{
+            type:'clothes',
+            name:'Iron_man_icon3'
+        },{
+            type:'clothes',
+            name:'Pajama_pink10'
+        },{
+            type:'clothes',
+            name:'Pajama_green10'
+        },{
+            type:'clothes',
+            name:'Pajama_blue10'
+        },{
+            type:'clothes',
+            name:'Hoody10'
+        },{
+            type:'clothes',
+            name:'00710'
+        },{
+            type:'clothes',
+            name:'Police10'
+        },{
+            type:'ears',
+            name:'Gold_fur5'
+        },{
+            type:'ears',
+            name:'Gray_fur5'
+        },{
+            type:'ears',
+            name:'Rainbow_fur3'
+        },{
+            type:'ears',
+            name:'Pink_fur5'
+        },{
+            type:'ears',
+            name:'Left_ring_g10'
+        },{
+            type:'ears',
+            name:'Right_ring_g10'
+        },{
+            type:'ears',
+            name:'Left_ring_s10'
+        },{
+            type:'ears',
+            name:'Right_ring_s10'
+        },{
+            type:'eyes',
+            name:'Priaty15'
+        },{
+            type:'eyes',
+            name:'Sad15'
+        },{
+            type:'eyes',
+            name:'Hurts15'
+        },{
+            type:'eyes',
+            name:'ETH_g1'
+        },{
+            type:'eyes',
+            name:'ETH_p1'
+        },{
+            type:'eyes',
+            name:'Tape_g10'
+        },{
+            type:'eyes',
+            name:'Tape_p10'
+        },{
+            type:'eyes',
+            name:'Tape_b10'
+        },{
+            type:'eyes',
+            name:'Buttons_w40'
+        },{
+            type:'eyes',
+            name:'Buttons_r30'
+        },{
+            type:'eyes',
+            name:'Buttons_bl40'
+        },{
+            type:'eyes',
+            name:'Buttons_b40'
+        },{
+            type:'eyes',
+            name:'Divorces_p5'
+        },{
+            type:'eyes',
+            name:'Divorces_b5'
+        },{
+            type:'eyes',
+            name:'Normal60'
+        },{
+            type:'eyes',
+            name:'red5'
+        },{
+            type:'faces',
+            name:'Sunglasses10'
+        },{
+            type:'faces',
+            name:'Ski_mask10'
+        },{
+            type:'faces',
+            name:'Silver_ring_n10'
+        },{
+            type:'faces',
+            name:'Robot1'
+        },{
+            type:'faces',
+            name:'Mask7'
+        },{
+            type:'faces',
+            name:'Gold_ring_n10'
+        },{
+            type:'faces',
+            name:'Glasses10'
+        },{
+            type:'faces',
+            name:'Batman_f5'
+        },{
+            type:'hats',
+            name:'White_hat20'
+        },{
+            type:'hats',
+            name:'White_hat_carrot10'
+        },{
+            type:'hats',
+            name:'Police_hat10'
+        },{
+            type:'hats',
+            name:'Mask_w3'
+        },{
+            type:'hats',
+            name:'Mask_p3'
+        },{
+            type:'hats',
+            name:'Mask_g3'
+        },{
+            type:'hats',
+            name:'Mask_b3'
+        },{
+            type:'hats',
+            name:'Knitted_hat_w10'
+        },{
+            type:'hats',
+            name:'Knitted_hat_p10'
+        },{
+            type:'hats',
+            name:'Knitted_hat_g10'
+        },{
+            type:'hats',
+            name:'Knitted_hat_br10'
+        },{
+            type:'hats',
+            name:'Knitted_hat_b10'
+        },{
+            type:'hats',
+            name:'Crown_w10'
+        },{
+            type:'hats',
+            name:'Crown_s10'
+        },{
+            type:'hats',
+            name:'Crown_g10'
+        },{
+            type:'hats',
+            name:'Crown_b10'
+        },{
+            type:'hats',
+            name:'Black_hat20'
+        },{
+            type:'hats',
+            name:'Black_hat_carrot10'
+        },{
+            type:'left',
+            name:'Whip_l5'
+        },{
+            type:'left',
+            name:'Machine_l5'
+        },{
+            type:'left',
+            name:'Ice_cream_l5'
+        },{
+            type:'left',
+            name:'Hummer_l5'
+        },{
+            type:'left',
+            name:'Bit_l5'
+        },{
+            type:'left',
+            name:'Axe_l5'
+        },{
+            type:'mouth',
+            name:'Vampire_m5'
+        },{
+            type:'mouth',
+            name:'Tape_p_m10'
+        },{
+            type:'mouth',
+            name:'Tape_g_m10'
+        },{
+            type:'mouth',
+            name:'Tape_b_m10'
+        },{
+            type:'mouth',
+            name:'Smile50'
+        },{
+            type:'mouth',
+            name:'Silver_carrot_m5'
+        },{
+            type:'mouth',
+            name:'Sewn_mouth5'
+        },{
+            type:'mouth',
+            name:'Sad_m30'
+        },{
+            type:'mouth',
+            name:'Rainbow_carrot_m5'
+        },{
+            type:'mouth',
+            name:'Normal_m50'
+        },{
+            type:'mouth',
+            name:'Jedi_sword_p_m5'
+        },{
+            type:'mouth',
+            name:'Jedi_sword_g_m5'
+        },{
+            type:'mouth',
+            name:'Jedi_sword_b_m5'
+        },{
+            type:'mouth',
+            name:'Happy_m30'
+        },{
+            type:'mouth',
+            name:'Gold_carrot_m5'
+        },{
+            type:'mouth',
+            name:'F_you_m5'
+        },{
+            type:'mouth',
+            name:'F_off_m5'
+        },{
+            type:'mouth',
+            name:'Carrot_m5'
+        },{
+            type:'mouth',
+            name:'Bunny_teeth15'
+        },{
+            type:'necklace',
+            name:'Playboy_silver10'
+        },{
+            type:'necklace',
+            name:'Playboy_gold10'
+        },{
+            type:'necklace',
+            name:'ETH_siver_n5'
+        },{
+            type:'necklace',
+            name:'ETH_gold_n5'
+        },{
+            type:'necklace',
+            name:'Dollar_silver10'
+        },{
+            type:'necklace',
+            name:'Dollar_gold10'
+        },{
+            type:'necklace',
+            name:'Carrot_silver_n5'
+        },{
+            type:'necklace',
+            name:'Carrot_gold_n5'
+        },{
+            type:'overhead',
+            name:'ETH_icon_p3'
+        },{
+            type:'overhead',
+            name:'ETH_icon_g3'
+        },{
+            type:'right',
+            name:'Whatch_r10'
+        },{
+            type:'right',
+            name:'Machine_r5'
+        },{
+            type:'right',
+            name:'Health_bracelet_r5'
+        },{
+            type:'right',
+            name:'Chain_s_r10'
+        },{
+            type:'right',
+            name:'Chain_g_r10'
         },
     ]
 
@@ -242,17 +470,17 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
-          <div className={'w-5/12 bg-red-600 h-[100vh]'}>
-              <div className={'border-2 border-yellow-500 h-[55%] flex justify-center content-center items-center'}>
+          <div className={'w-5/12 bg-[#9D9D9D] h-[100vh]'}>
+              <div className={'h-[55%] flex justify-center content-center items-center'}>
                   <div className={'w-[310px] h-[450px]'}>
                       <BunnyGeneration bunny={bunny}></BunnyGeneration>
                   </div>
               </div>
-              <div className={'border-2 border-yellow-500 h-[5%]'}>
+              <div className={'h-[5%]'}>
                   <CategoryBar currenTab={currenTab} setCurrentTab={changeCurrentTab}></CategoryBar>
               </div>
-              <div className={'border-2 border-yellow-500 h-[40%]'}>
-                  <InventoryCards  changeBase={changeBase} changeMouth={changeMouth} changeEyes={changeEyes} changeEars={changeEars} changeClothes={changeClothes} changeHat={changeHat} changeLeft={changeLeft} changeRight={changeRight} changeNecklace={changeNecklace} changeFace={changeFace} changeOverhead={changeOverhead} bunny={{bunny}} inventory={inventory}></InventoryCards>
+              <div className={'h-[40%]'}>
+                  <InventoryCards inventory={inventory} bunny={{bunny}} attachItemToBunny={attachItemToBunny} currentTab={currenTab}></InventoryCards>
               </div>
           </div>
       </main>

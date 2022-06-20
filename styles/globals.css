@@ -28,7 +28,7 @@
 
 .tab-container::-webkit-scrollbar {
     width: 12px;               /* ширина scrollbar */
-    height: 0px;
+    height: 2px;
 }
 .tab-container::-webkit-scrollbar-track {
     background: transparent;        /* цвет дорожки */

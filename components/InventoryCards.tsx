@@ -1,52 +1,25 @@
 import React from 'react';
 
-interface InventoryItemInterface{
-    type:string,
-    name:string,
-}
-
+import InventoryItemInterface from "../interfaces/InventoryItem";
 interface inventoryInterface{
     inventory: Array<InventoryItemInterface>,
 }
-
-interface BunnyInterface{
-    bunny:{
-        base?:InventoryItemInterface,
-        mouth?:InventoryItemInterface,
-        eyes?:InventoryItemInterface,
-        ears?:InventoryItemInterface,
-        face?:InventoryItemInterface,
-        hat?:InventoryItemInterface,
-        clothes?:InventoryItemInterface,
-        left?:InventoryItemInterface,
-        right?:InventoryItemInterface,
-        necklace?:InventoryItemInterface,
-        overhead?:InventoryItemInterface,
-    }
-}
+import BunnyInterface from "../interfaces/BunnyInterface";
 
 interface InventoryCardsInterface extends  inventoryInterface{
-    changeBase:(item:InventoryItemInterface)=>void,
-    changeMouth:(item:InventoryItemInterface)=>void,
-    changeEyes:(item:InventoryItemInterface)=>void,
-    changeEars:(item:InventoryItemInterface)=>void,
-    changeClothes:(item:InventoryItemInterface)=>void,
-    changeHat:(item:InventoryItemInterface)=>void,
-    changeLeft:(item:InventoryItemInterface)=>void,
-    changeRight:(item:InventoryItemInterface)=>void,
-    changeNecklace:(item:InventoryItemInterface)=>void,
-    changeFace:(item:InventoryItemInterface)=>void,
-    changeOverhead:(item:InventoryItemInterface)=>void,
+    attachItemToBunny:(place:string|"base"|"eyes"|"mouth"|"left"|"right"|"necklace"|"face"|"clothes"|"hat"|"overhead"|"ears",item:InventoryItemInterface)=>any,
     bunny:BunnyInterface,
+    currentTab:string|"base"|"eyes"|"mouth"|"left"|"right"|"necklace"|"face"|"clothes"|"hat"|"overhead"|"ears",
 }
 
-const InventoryCards = ({inventory, changeClothes, changeEyes, changeEars, changeHat, changeLeft, changeMouth, changeRight, changeNecklace, changeOverhead, changeFace, changeBase, bunny}:InventoryCardsInterface) => {
+const InventoryCards = ({inventory, bunny, attachItemToBunny,currentTab}:InventoryCardsInterface) => {
+
     return (
         <div className={'w-full h-full'}>
             <div className={'grid grid-cols-3 gap-2 grid-rows-3'}>
-                <button onClick={()=>{changeBase({type:'base',name:'Black_bunny40'})}}>
-                    SUASADAS
-                </button>
+                {inventory.filter((obj:InventoryItemInterface)=> {
+                    return obj.type==currentTab;
+                }).map((item:InventoryItemInterface)=><div onClick={()=>{attachItemToBunny(currentTab,item)}}>{item.name}</div>)}
             </div>
 
         </div>
