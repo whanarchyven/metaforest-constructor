@@ -19,7 +19,7 @@ const InventoryCards = ({inventory, bunny, attachItemToBunny,currentTab}:Invento
             <div className={'grid grid-cols-3 gap-2 grid-rows-3'}>
                 {inventory.filter((obj:InventoryItemInterface)=> {
                     return obj.type==currentTab;
-                }).map((item:InventoryItemInterface)=><div onClick={()=>{attachItemToBunny(currentTab,item)}}>{item.name}</div>)}
+                }).map((item:InventoryItemInterface)=><div key={item.name} onClick={()=>{attachItemToBunny(currentTab,item)}}>{item.name}</div>)}
             </div>
 
         </div>
