@@ -2,6 +2,7 @@ import InventoryItemInterface from "./InventoryItem";
 
 export default interface BunnyInterface{
     bunny:{
+        background?:InventoryItemInterface
         base?:InventoryItemInterface,
         mouth?:InventoryItemInterface,
         eyes?:InventoryItemInterface,

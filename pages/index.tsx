@@ -16,6 +16,10 @@ const Home: NextPage = () => {
         setCurrentTab(newTab);
     }
     const initialBunny={
+        background:{
+            type:'background',
+            name:'',
+        },
         base:{
             type:'base',
             name:'Aluminum_bunny20',
@@ -76,7 +80,7 @@ const Home: NextPage = () => {
     //стиль кода пздц. Бей себя по рукам за копипасту.
 
     //вместо тысячи функций - вот
-    const attachItemToBunny = (place:string|"base"|"eyes"|"mouth"|"left"|"right"|"necklace"|"face"|"clothes"|"hat"|"overhead"|"ears",item:InventoryItemInterface)=>{
+    const attachItemToBunny = (place:string|"background"|"base"|"eyes"|"mouth"|"left"|"right"|"necklace"|"face"|"clothes"|"hat"|"overhead"|"ears",item:InventoryItemInterface)=>{
         return setBunny({...bunny,[place]:item})
     }
 
@@ -456,9 +460,58 @@ const Home: NextPage = () => {
             type:'right',
             name:'Chain_s_r10'
         },{
-            type:'right',
-            name:'Chain_g_r10'
+            type:'background',
+            name:'White70'
+        },{
+            type:'background',
+            name:'Violet65'
+        },{
+            type:'background',
+            name:'Space17'
+        },{
+            type:'background',
+            name:'Shadow12'
+        },{
+            type:'background',
+            name:'petrol7'
+        },{
+            type:'background',
+            name:'Petrol27'
+        },{
+            type:'background',
+            name:'Pattern17'
+        },{
+            type:'background',
+            name:'Neon_square7'
+        },{
+            type:'background',
+            name:'Neon_cercle7'
+        },{
+            type:'background',
+            name:'Moon7'
+        },{
+            type:'background',
+            name:'Loony15'
+        },{
+            type:'background',
+            name:'Light17'
+        },{
+            type:'background',
+            name:'Labirint12'
+        },{
+            type:'background',
+            name:'Half_moon7'
+        },{
+            type:'background',
+            name:'CardBoard3'
+        },{
+            type:'background',
+            name:'Card3'
+        },{
+            type:'background',
+            name:'Black65'
         },
+
     ]
 
   return (

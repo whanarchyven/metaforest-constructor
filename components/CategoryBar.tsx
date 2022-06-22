@@ -2,8 +2,8 @@ import React, {useState} from 'react';
 
 
 interface categoryBarInterface{
-    currenTab:string|"base"|"eyes"|"mouth"|"left"|"right"|"necklace"|"face"|"clothes"|"hat"|"overhead"|"ears",
-    setCurrentTab:(newTab:string|"base"|"eyes"|"mouth"|"left"|"right"|"necklace"|"face"|"clothes"|"hat"|"overhead"|"ears")=>void,
+    currenTab:string|"background"|"base"|"eyes"|"mouth"|"left"|"right"|"necklace"|"face"|"clothes"|"hat"|"overhead"|"ears",
+    setCurrentTab:(newTab:string|"background"|"base"|"eyes"|"mouth"|"left"|"right"|"necklace"|"face"|"clothes"|"hat"|"overhead"|"ears")=>void,
 }
 
 const CategoryBar = ({currenTab,setCurrentTab}:categoryBarInterface) => {
@@ -18,6 +18,7 @@ const CategoryBar = ({currenTab,setCurrentTab}:categoryBarInterface) => {
     const rightRef = React.useRef<HTMLInputElement>(null);
     const necklaceRef = React.useRef<HTMLInputElement>(null);
     const overheadRef = React.useRef<HTMLInputElement>(null);
+    const backgroundRef = React.useRef<HTMLInputElement>(null);
     return (
         <div className={'tab-container'}>
             {currenTab=='base'?<p className={'active-tab'}>Base</p>:<p ref={baseRef} onClick={()=>{setCurrentTab('base');if(baseRef.current){baseRef.current.scrollIntoView({
@@ -64,6 +65,10 @@ const CategoryBar = ({currenTab,setCurrentTab}:categoryBarInterface) => {
             {currenTab=='overhead'?<p className={'active-tab'}>Overhead</p>:<p ref={overheadRef} onClick={()=>{setCurrentTab('overhead');if(overheadRef.current){overheadRef.current.scrollIntoView({
                 behavior: "smooth", block:'nearest',
             })}}} className={'deactive-tab'}>Overhead</p>}
+
+            {currenTab=='background'?<p className={'active-tab'}>Base</p>:<p ref={backgroundRef} onClick={()=>{setCurrentTab('background');if(backgroundRef.current){backgroundRef.current.scrollIntoView({
+                behavior: "smooth", block:'nearest',
+            })}}} className={'deactive-tab'}>Background</p>}
 
         </div>
     );

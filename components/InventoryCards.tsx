@@ -9,13 +9,12 @@ interface inventoryInterface {
 import BunnyInterface from "../interfaces/BunnyInterface";
 
 interface InventoryCardsInterface extends inventoryInterface {
-    attachItemToBunny: (place: string | "base" | "eyes" | "mouth" | "left" | "right" | "necklace" | "face" | "clothes" | "hat" | "overhead" | "ears", item: InventoryItemInterface) => any,
+    attachItemToBunny: (place: string|"background" | "base" | "eyes" | "mouth" | "left" | "right" | "necklace" | "face" | "clothes" | "hat" | "overhead" | "ears", item: InventoryItemInterface) => any,
     bunny: BunnyInterface,
-    currentTab: string | "base" | "eyes" | "mouth" | "left" | "right" | "necklace" | "face" | "clothes" | "hat" | "overhead" | "ears",
+    currentTab: string|"background" | "base" | "eyes" | "mouth" | "left" | "right" | "necklace" | "face" | "clothes" | "hat" | "overhead" | "ears",
 }
 
 const InventoryCards = ({inventory, bunny, attachItemToBunny, currentTab}: InventoryCardsInterface) => {
-    let bunnyTemp = bunny.bunny;
     return (
         <div className={'inventory-container'}>
             <div className={'grid grid-cols-2 sm:grid-cols-3 gap-2 justify-between overflow-y-scroll max-h-full'}>
@@ -23,7 +22,7 @@ const InventoryCards = ({inventory, bunny, attachItemToBunny, currentTab}: Inven
                     return obj.type == currentTab;
                 }).map((item: InventoryItemInterface) => {
                     let clas = '';
-                    if (bunny.bunny[item.type as "base" | "eyes" | "mouth" | "left" | "right" | "necklace" | "face" | "clothes" | "hat" | "overhead" | "ears"]?.name == item.name) {
+                    if (bunny.bunny[item.type as "base"|"background" | "eyes" | "mouth" | "left" | "right" | "necklace" | "face" | "clothes" | "hat" | "overhead" | "ears"]?.name == item.name) {
                         clas = ' border-4 border-[#7DCF99] rounded-xl cursor-auto '
                     } else {
                         clas = ''
