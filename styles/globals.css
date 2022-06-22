@@ -10,6 +10,7 @@
     background: #565656;
     font-size: 1.3em;
     height: 100%;
+    z-index: 9999;
 }
 
 .active-tab{
@@ -19,6 +20,7 @@
     text-decoration: underline;
     text-align: center;
     cursor: pointer;
+    z-index: 9999;
 }
 
 .deactive-tab{
@@ -27,6 +29,7 @@
     width: 100px;
     text-align: center;
     cursor: pointer;
+    z-index: 9999;
 }
 .tab-container::-webkit-scrollbar {
     width: 12px;               /* ширина scrollbar */

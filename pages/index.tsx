@@ -472,14 +472,14 @@ const Home: NextPage = () => {
       <main className={styles.main}>
           <div className={'w-full sm:w-[600px] h-[100vh]'}>
               <div className={'h-[55%] flex justify-center content-center items-center'}>
-                  <div className={'w-[310px] h-[450px]'}>
+                  <div className={'w-[250px] h-[360px] sm:w-[310px] sm:h-[450px] z-10'}>
                       <BunnyGeneration bunny={bunny}></BunnyGeneration>
                   </div>
               </div>
-              <div className={'h-[5%] bg-[#565656]'}>
+              <div className={'h-[5%] bg-[#565656] z-[998]'}>
                   <CategoryBar currenTab={currenTab} setCurrentTab={changeCurrentTab}></CategoryBar>
               </div>
-              <div className={'h-[40%] bg-gray-500'}>
+              <div className={'h-[40%] bg-gray-500 z-[999]'}>
                   <InventoryCards inventory={inventory} bunny={{bunny}} attachItemToBunny={attachItemToBunny} currentTab={currenTab}></InventoryCards>
               </div>
           </div>
