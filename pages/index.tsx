@@ -470,7 +470,7 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
-          <div className={'w-5/12 h-[100vh]'}>
+          <div className={'w-full sm:w-[600px] h-[100vh]'}>
               <div className={'h-[55%] flex justify-center content-center items-center'}>
                   <div className={'w-[310px] h-[450px]'}>
                       <BunnyGeneration bunny={bunny}></BunnyGeneration>

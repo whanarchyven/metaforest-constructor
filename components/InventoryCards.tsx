@@ -18,7 +18,7 @@ const InventoryCards = ({inventory, bunny, attachItemToBunny, currentTab}: Inven
     let bunnyTemp = bunny.bunny;
     return (
         <div className={'inventory-container'}>
-            <div className={'grid grid-cols-3 gap-2 justify-between overflow-y-scroll max-h-full'}>
+            <div className={'grid grid-cols-2 sm:grid-cols-3 gap-2 justify-between overflow-y-scroll max-h-full'}>
                 {inventory.filter((obj: InventoryItemInterface) => {
                     return obj.type == currentTab;
                 }).map((item: InventoryItemInterface) => {
