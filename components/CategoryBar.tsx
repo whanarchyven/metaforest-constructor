@@ -66,7 +66,7 @@ const CategoryBar = ({currenTab,setCurrentTab}:categoryBarInterface) => {
                 behavior: "smooth", block:'nearest',
             })}}} className={'deactive-tab'}>Overhead</p>}
 
-            {currenTab=='background'?<p className={'active-tab'}>Base</p>:<p ref={backgroundRef} onClick={()=>{setCurrentTab('background');if(backgroundRef.current){backgroundRef.current.scrollIntoView({
+            {currenTab=='background'?<p className={'active-tab'}>Background</p>:<p ref={backgroundRef} onClick={()=>{setCurrentTab('background');if(backgroundRef.current){backgroundRef.current.scrollIntoView({
                 behavior: "smooth", block:'nearest',
             })}}} className={'deactive-tab'}>Background</p>}
 
