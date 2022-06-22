@@ -470,16 +470,16 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
-          <div className={'w-5/12 bg-[#9D9D9D] h-[100vh]'}>
+          <div className={'w-5/12 h-[100vh]'}>
               <div className={'h-[55%] flex justify-center content-center items-center'}>
                   <div className={'w-[310px] h-[450px]'}>
                       <BunnyGeneration bunny={bunny}></BunnyGeneration>
                   </div>
               </div>
-              <div className={'h-[5%]'}>
+              <div className={'h-[5%] bg-[#565656]'}>
                   <CategoryBar currenTab={currenTab} setCurrentTab={changeCurrentTab}></CategoryBar>
               </div>
-              <div className={'h-[40%]'}>
+              <div className={'h-[40%] bg-gray-500'}>
                   <InventoryCards inventory={inventory} bunny={{bunny}} attachItemToBunny={attachItemToBunny} currentTab={currenTab}></InventoryCards>
               </div>
           </div>

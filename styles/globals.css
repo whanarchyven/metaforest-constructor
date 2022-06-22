@@ -9,6 +9,7 @@
     overflow-x: scroll;
     background: #565656;
     font-size: 1.3em;
+    height: 100%;
 }
 
 .active-tab{
@@ -17,6 +18,7 @@
     width: 100px;
     text-decoration: underline;
     text-align: center;
+    cursor: pointer;
 }
 
 .deactive-tab{
@@ -24,8 +26,8 @@
     display: inline-block;
     width: 100px;
     text-align: center;
+    cursor: pointer;
 }
-
 .tab-container::-webkit-scrollbar {
     width: 12px;               /* ширина scrollbar */
     height: 2px;
@@ -36,4 +38,24 @@
 .tab-container::-webkit-scrollbar-thumb {
     background-color: white;    /* цвет плашки */
     border-radius: 20px;       /* закругления плашки */ /* padding вокруг плашки */
+}
+.inventory-container{
+    width: 100%;
+    height: 100%;
+}
+.inventory-container::-webkit-scrollbar {
+    width: 12px;               /* ширина scrollbar */
+    height: 2px;
+}
+.inventory-container::-webkit-scrollbar-track {
+    background: transparent;        /* цвет дорожки */
+}
+.inventory-container::-webkit-scrollbar-thumb {
+    background-color: white;    /* цвет плашки */
+    border-radius: 20px;       /* закругления плашки */ /* padding вокруг плашки */
+}
+
+
+.inventory-card{
+    background: linear-gradient(127.99deg, #5551F1 15.94%, #EA3347 78.44%);
 }
