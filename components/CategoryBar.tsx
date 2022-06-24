@@ -7,18 +7,18 @@ interface categoryBarInterface {
 }
 
 const CategoryBar = ({currenTab, setCurrentTab}: categoryBarInterface) => {
-    const baseRef = React.useRef<HTMLInputElement>(null);
-    const mouthRef = React.useRef<HTMLInputElement>(null);
-    const eyesRef = React.useRef<HTMLInputElement>(null);
-    const earsRef = React.useRef<HTMLInputElement>(null);
-    const facesRef = React.useRef<HTMLInputElement>(null);
-    const hatsRef = React.useRef<HTMLInputElement>(null);
-    const clothesRef = React.useRef<HTMLInputElement>(null);
-    const leftRef = React.useRef<HTMLInputElement>(null);
-    const rightRef = React.useRef<HTMLInputElement>(null);
-    const necklaceRef = React.useRef<HTMLInputElement>(null);
-    const overheadRef = React.useRef<HTMLInputElement>(null);
-    const backgroundRef = React.useRef<HTMLInputElement>(null);
+    // const baseRef = React.useRef<HTMLInputElement>(null);
+    // const mouthRef = React.useRef<HTMLInputElement>(null);
+    // const eyesRef = React.useRef<HTMLInputElement>(null);
+    // const earsRef = React.useRef<HTMLInputElement>(null);
+    // const facesRef = React.useRef<HTMLInputElement>(null);
+    // const hatsRef = React.useRef<HTMLInputElement>(null);
+    // const clothesRef = React.useRef<HTMLInputElement>(null);
+    // const leftRef = React.useRef<HTMLInputElement>(null);
+    // const rightRef = React.useRef<HTMLInputElement>(null);
+    // const necklaceRef = React.useRef<HTMLInputElement>(null);
+    // const overheadRef = React.useRef<HTMLInputElement>(null);
+    // const backgroundRef = React.useRef<HTMLInputElement>(null);
 
     const tabs = ['base',
         'eyes',
@@ -43,13 +43,8 @@ const CategoryBar = ({currenTab, setCurrentTab}: categoryBarInterface) => {
         <div className={'tab-container'}>
             {tabs.map(item => {
                 let clas = item == currenTab ? 'active-tab' : 'deactive-tab';
-                return (<p ref={baseRef} onClick={() => {
+                return (<p onClick={() => {
                     setCurrentTab(item);
-                    if (baseRef.current) {
-                        baseRef.current.scrollIntoView({
-                            behavior: "smooth", block: 'nearest',
-                        })
-                    }
                 }} className={clas}>{ucFirst(item)}</p>)
             })}
         </div>
