@@ -43,7 +43,7 @@ const CategoryBar = ({currenTab, setCurrentTab}: categoryBarInterface) => {
         <div className={'tab-container'}>
             {tabs.map(item => {
                 let clas = item == currenTab ? 'active-tab' : 'deactive-tab';
-                return (<p onClick={() => {
+                return (<p key={item} onClick={() => {
                     setCurrentTab(item);
                 }} className={clas}>{ucFirst(item)}</p>)
             })}
