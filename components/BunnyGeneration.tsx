@@ -39,7 +39,7 @@ const BunnyGeneration = (bunny: BunnyInterface) => {
     return <div className={'w-full h-full flex justify-center relative'}>
         <div onClick={() => {
             downloadImage()
-        }} className={'h-12 absolute bottom-[-90px] cursor-pointer sm:bottom-[-60px] z-50 green-gradient w-10/12 rounded-full flex justify-center items-center font-bold'}>
+        }} className={'h-12 absolute bottom-[-10px] cursor-pointer sm:bottom-[-60px] z-50 green-gradient w-10/12 rounded-full flex justify-center items-center font-bold'}>
             <div className={'relative inline-block w-6 h-5 mr-2'}><Image src={'/images/download_button.svg'} layout={'fill'}/></div>
             <p className={'inline-block'}>Save your bunny</p>
         </div>
