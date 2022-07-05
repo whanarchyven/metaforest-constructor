@@ -1,66 +1,64 @@
-import React from 'react';
-
+import React, {useEffect, useRef} from 'react';
 import Image from "next/image";
+import BunnyInterface from "../interfaces/BunnyInterface";
+import {random} from "nanoid";
+import InventoryItemInterface from "../interfaces/InventoryItem";
 
-interface InventoryItemInterface{
-    type:string,
-    name:string,
-}
+const BunnyGeneration = (bunny: BunnyInterface) => {
+    const list = Object.entries(bunny.bunny)
+    const backgroundRef = React.useRef<HTMLImageElement>(null);
+    const baseRef = React.useRef<HTMLImageElement>(null);
+    const linkRef = React.useRef<HTMLAnchorElement>(null)
+    let canvasRef = useRef<HTMLCanvasElement | null>(null);
+    let canvasCtxRef = React.useRef<CanvasRenderingContext2D | null>(null);
 
-interface BunnyInterface{
-    bunny:{
-        base?:InventoryItemInterface,
-        mouth?:InventoryItemInterface,
-        eyes?:InventoryItemInterface,
-        ears?:InventoryItemInterface,
-        face?:InventoryItemInterface,
-        hat?:InventoryItemInterface,
-        clothes?:InventoryItemInterface,
-        left?:InventoryItemInterface,
-        right?:InventoryItemInterface,
-        necklace?:InventoryItemInterface,
-        overhead?:InventoryItemInterface,
+    const downloadImage = async () => {
+
+        if (canvasRef.current) {
+            canvasCtxRef.current = canvasRef.current.getContext('2d');
+            let ctx = canvasCtxRef.current;
+            let img = baseRef.current;
+                list.map(item => {
+                    console.log(item)
+                    let url=''
+                    if (item[1].name != '') {
+                        console.log(item[1].name)
+                        url = '/images/bunny_generation/' + item[1].type + '/' + item[1].name + '.png';
+                        if (img) {
+                            img.src = url;
+                            ctx!.drawImage(img, 0, 0, 868, 1250)
+                        }
+                    }
+                })
+            if (ctx?.canvas && linkRef.current) {
+                linkRef.current.href = ctx?.canvas.toDataURL();
+                linkRef.current.click();
+            }
+        }
     }
-}
-
-const BunnyGeneration = (bunny:BunnyInterface) => {
-    return (
-        <div className={'w-full relative h-full'}>
-            <div className={'w-full absolute top-0 left-0 h-full'}>
-                <Image src={'/images/bunny_generation/Rabbits/'+bunny.bunny.base?.name+'.png'} layout={'fill'}></Image>
-            </div>
-            <div className={'w-full absolute top-0 left-0 h-full'}>
-                {bunny.bunny.eyes==undefined||bunny.bunny.eyes.name==''?<div></div> : <Image src={'/images/bunny_generation/Eyes/'+bunny.bunny.eyes?.name+'.png'} layout={'fill'}></Image>}
-            </div>
-            <div className={'w-full absolute top-0 left-0 h-full'}>
-                {bunny.bunny.mouth==undefined||bunny.bunny.mouth.name==''?<div></div> : <Image src={'/images/bunny_generation/Mouth/'+bunny.bunny.mouth?.name+'.png'} layout={'fill'}></Image>}
-            </div>
-            <div className={'w-full absolute top-0 left-0 h-full'}>
-                {bunny.bunny.face==undefined||bunny.bunny.face.name==''?<div></div> : <Image src={'/images/bunny_generation/Faces/'+bunny.bunny.face?.name+'.png'} layout={'fill'}></Image>}
-            </div>
-            <div className={'w-full absolute top-0 left-0 h-full'}>
-                {bunny.bunny.overhead==undefined||bunny.bunny.overhead.name==''?<div></div> : <Image src={'/images/bunny_generation/Over head/'+bunny.bunny.overhead?.name+'.png'} layout={'fill'}></Image>}
-            </div>
-            <div className={'w-full absolute top-0 left-0 h-full'}>
-                {bunny.bunny.hat==undefined||bunny.bunny.hat.name==''?<div></div> : <Image src={'/images/bunny_generation/Hats/'+bunny.bunny.hat?.name+'.png'} layout={'fill'}></Image>}
-            </div>
-            <div className={'w-full absolute top-0 left-0 h-full'}>
-                {bunny.bunny.clothes==undefined||bunny.bunny.clothes.name==''?<div></div> : <Image src={'/images/bunny_generation/Clothes/'+bunny.bunny.clothes?.name+'.png'} layout={'fill'}></Image>}
-            </div>
-            <div className={'w-full absolute top-0 left-0 h-full'}>
-                {bunny.bunny.left==undefined||bunny.bunny.left.name==''?<div></div> : <Image src={'/images/bunny_generation/Left hand/'+bunny.bunny.left?.name+'.png'} layout={'fill'}></Image>}
-            </div>
-            <div className={'w-full absolute top-0 left-0 h-full'}>
-                {bunny.bunny.right==undefined||bunny.bunny.right.name==''?<div></div> : <Image src={'/images/bunny_generation/Right hand/'+bunny.bunny.right?.name+'.png'} layout={'fill'}></Image>}
-            </div>
-            <div className={'w-full absolute top-0 left-0 h-full'}>
-                {bunny.bunny.ears==undefined||bunny.bunny.ears.name==''?<div></div> : <Image src={'/images/bunny_generation/Ears/'+bunny.bunny.ears?.name+'.png'} layout={'fill'}></Image>}
-            </div>
-            <div className={'w-full absolute top-0 left-0 h-full'}>
-                {bunny.bunny.necklace==undefined||bunny.bunny.necklace.name==''?<div></div> : <Image src={'/images/bunny_generation/Necklace/'+bunny.bunny.necklace?.name+'.png'} layout={'fill'}></Image>}
-            </div>
+    return <div className={'w-full h-full flex justify-center relative'}>
+        <div onClick={() => {
+            downloadImage()
+        }} className={'h-12 absolute bottom-[-10px] cursor-pointer sm:bottom-[-60px] z-50 green-gradient w-10/12 rounded-full flex justify-center items-center font-bold'}>
+            <div className={'relative inline-block w-6 h-5 mr-2'}><Image src={'/images/download_button.svg'} layout={'fill'}/></div>
+            <p className={'inline-block'}>Save your bunny</p>
         </div>
-    );
+        <a ref={linkRef} download={'myBunny.png'} className={'absolute top-52 z-50 hidden'}>EBASH</a>
+        {list.map((item, counter) => {
+            if (item[1].name!='') {
+                return <div key={random(4).toString()} className={'w-full absolute top-0 left-0 h-full'}>
+                    <img src={'/images/bunny_generation/' + item[0] + '/' + item[1].name + '.png'}
+                         className={'rounded-xl'}/>
+                </div>
+            } else {
+                return null
+            }
+        })}
+        <img src={'/images/bunny_generation/'+ list[1][0] + '/' + list[1][1].name + '.png'} className={'rounded-xl hidden'} ref={baseRef}/>
+        <canvas ref={canvasRef} width={868} height={1250} className={'hidden'}>
+        </canvas>
+
+    </div>
 };
 
 export default BunnyGeneration;

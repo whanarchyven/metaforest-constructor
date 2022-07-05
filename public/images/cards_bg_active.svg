@@ -1,0 +1,26 @@
+<svg width="187" height="187" viewBox="0 0 187 187" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M149.89 2.5H36.37C17.6641 2.5 2.5 17.6641 2.5 36.37V149.89C2.5 168.596 17.6641 183.76 36.37 183.76H149.89C168.596 183.76 183.76 168.596 183.76 149.89V36.37C183.76 17.6641 168.596 2.5 149.89 2.5Z" fill="#EDEEF1" stroke="url(#paint0_linear_104_48)" stroke-width="5"/>
+<g style="mix-blend-mode:multiply" opacity="0.25">
+<g style="mix-blend-mode:multiply">
+<path d="M149.89 2.5H36.37C17.6641 2.5 2.5 17.6641 2.5 36.37V149.89C2.5 168.596 17.6641 183.76 36.37 183.76H149.89C168.596 183.76 183.76 168.596 183.76 149.89V36.37C183.76 17.6641 168.596 2.5 149.89 2.5Z" fill="url(#paint1_radial_104_48)"/>
+<path d="M149.89 2.5H36.37C17.6641 2.5 2.5 17.6641 2.5 36.37V149.89C2.5 168.596 17.6641 183.76 36.37 183.76H149.89C168.596 183.76 183.76 168.596 183.76 149.89V36.37C183.76 17.6641 168.596 2.5 149.89 2.5Z" stroke="url(#paint2_linear_104_48)" stroke-width="5"/>
+</g>
+</g>
+<path opacity="0.25" d="M93.23 163.81C132.823 163.81 164.92 131.713 164.92 92.12C164.92 52.5267 132.823 20.4299 93.23 20.4299C53.6367 20.4299 21.54 52.5267 21.54 92.12C21.54 131.713 53.6367 163.81 93.23 163.81Z" fill="white"/>
+<path opacity="0.5" d="M93.23 152.49C126.571 152.49 153.6 125.461 153.6 92.12C153.6 58.7786 126.571 31.75 93.23 31.75C59.8885 31.75 32.86 58.7786 32.86 92.12C32.86 125.461 59.8885 152.49 93.23 152.49Z" fill="white"/>
+<path opacity="0.5" d="M93.23 139.12C119.187 139.12 140.23 118.077 140.23 92.1201C140.23 66.1627 119.187 45.1201 93.23 45.1201C67.2726 45.1201 46.23 66.1627 46.23 92.1201C46.23 118.077 67.2726 139.12 93.23 139.12Z" fill="white"/>
+<defs>
+<linearGradient id="paint0_linear_104_48" x1="5.29902" y1="93.1446" x2="181.249" y2="93.1446" gradientUnits="userSpaceOnUse">
+<stop stop-color="#64D2CC"/>
+<stop offset="1" stop-color="#29FF9E"/>
+</linearGradient>
+<radialGradient id="paint1_radial_104_48" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(93.13 93.13) rotate(-0.736781) scale(87.8773 79.9002)">
+<stop stop-color="#65D6CB"/>
+<stop offset="1" stop-color="#35FBA5"/>
+</radialGradient>
+<linearGradient id="paint2_linear_104_48" x1="93.13" y1="5" x2="93.13" y2="181.26" gradientUnits="userSpaceOnUse">
+<stop stop-color="#70FFE2"/>
+<stop offset="1" stop-color="#29FF9E"/>
+</linearGradient>
+</defs>
+</svg>

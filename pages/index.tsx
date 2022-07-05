@@ -6,42 +6,23 @@ import CategoryBar from "../components/CategoryBar";
 import {useEffect, useState} from "react";
 import BunnyGeneration from "../components/BunnyGeneration";
 import InventoryCards from "../components/InventoryCards";
-
-
-interface InventoryItemInerface{
-    type:string,
-    name:string,
-}
-
-interface BunnyInterface{
-        base?:InventoryItemInerface,
-        mouth?:InventoryItemInerface,
-        eyes?:InventoryItemInerface,
-        ears?:InventoryItemInerface,
-        face?:InventoryItemInerface,
-        hat?:InventoryItemInerface,
-        clothes?:InventoryItemInerface,
-        left?:InventoryItemInerface,
-        right?:InventoryItemInerface,
-        necklace?:InventoryItemInerface,
-        overhead?:InventoryItemInerface,
-}
-
-interface inventoryInterface{
-    inventory:[InventoryItemInerface],
-}
-
+import InventoryItemInterface from "../interfaces/InventoryItem";
+import BunnyInterface from "../interfaces/BunnyInterface";
 
 const Home: NextPage = () => {
+
     const [currenTab,setCurrentTab]=useState('base');
-    const changeCurrentTab= (newTab:string)=>{
+    const changeCurrentTab= (newTab:string|"base"|"eyes"|"mouth"|"left"|"right"|"necklace"|"face"|"clothes"|"hat"|"overhead"|"ears")=>{
         setCurrentTab(newTab);
     }
-
-    const [bunny,changeBunnyState]=useState({
+    const initialBunny={
+        background:{
+            type:'background',
+            name:'Standard',
+        },
         base:{
             type:'base',
-            name:'Aluminum_bunny20',
+            name:'0000s_0012_belyj'
         },
         mouth:{
             type:'mouth',
@@ -83,143 +64,651 @@ const Home: NextPage = () => {
             type:'overhead',
             name:'',
         },
-    })
-
-    const changeBase =(item:InventoryItemInerface)=>{
-        let temp=bunny;
-        bunny.base=item;
-        changeBunnyState((prev)=>prev=temp);
-        console.log(bunny.base.name);
     }
 
-    const changeEyes =(item:InventoryItemInerface)=>{
-        let temp=bunny;
-        bunny.eyes=item;
-        changeBunnyState((prev)=>prev=temp);
-    }
-    const changeMouth =(item:InventoryItemInerface)=>{
-        let temp=bunny;
-        bunny.mouth=item;
-        changeBunnyState((prev)=>prev=temp);
-    }
-    const changeEars =(item:InventoryItemInerface)=>{
-        let temp=bunny;
-        bunny.ears=item;
-        changeBunnyState((prev)=>prev=temp);
-    }
+    const [bunny,setBunny]=useState(initialBunny);
 
-    const changeHat =(item:InventoryItemInerface)=>{
-        let temp=bunny;
-        bunny.hat=item;
-        changeBunnyState((prev)=>prev=temp);
-    }
 
-    const changeClothes =(item:InventoryItemInerface)=>{
-        let temp=bunny;
-        bunny.clothes=item;
-        changeBunnyState((prev)=>prev=temp);
-    }
-    const changeLeft =(item:InventoryItemInerface)=>{
-        let temp=bunny;
-        bunny.left=item;
-        changeBunnyState((prev)=>prev=temp);
-    }
-    const changeRight =(item:InventoryItemInerface)=>{
-        let temp=bunny;
-        bunny.right=item;
-        changeBunnyState((prev)=>prev=temp);
-    }
 
-    const changeNecklace =(item:InventoryItemInerface)=>{
-        let temp=bunny;
-        bunny.necklace=item;
-        changeBunnyState((prev)=>prev=temp);
-    }
-    const changeFace =(item:InventoryItemInerface)=>{
-        let temp=bunny;
-        bunny.face=item;
-        changeBunnyState((prev)=>prev=temp);
-    }
-    const changeOverhead =(item:InventoryItemInerface)=>{
-        let temp=bunny;
-        bunny.overhead=item;
-        changeBunnyState((prev)=>prev=temp);
 
-    }
+    // const changeBase =(item:InventoryItemInerface)=>{
+    //     let temp=bunny; //это что за бред тут написан? Обьект копируется через {...bunny}
+    //     bunny.base=item;
+    //     setBunny((prev)=>prev=temp); //мда. Ты зачем-то задаешь новый стейт как (prev=temp) - результат операции присовения.
+    //     console.log(bunny.base.name);
+    // }
+    //стиль кода пздц. Бей себя по рукам за копипасту.
 
+    //вместо тысячи функций - вот
+    const attachItemToBunny = (place:string|"background"|"base"|"eyes"|"mouth"|"left"|"right"|"necklace"|"face"|"clothes"|"hat"|"overhead"|"ears",item:InventoryItemInterface)=>{
+        return setBunny({...bunny,[place]:item})
+    }
 
 
     const inventory=[
         {
             type:'base',
-            name:'White_bunny40'
+            name:'0000s_0000_pererabotannyj-plastik'
         },
         {
             type:'base',
-            name:'Petrol_bunny10'
-        },{
-            type:'base',
-            name:'Pink_bunny40'
+            name:'0000s_0001_folga'
         },
         {
             type:'base',
-            name:'Blue_bunny40'
-        },{
-            type:'base',
-            name:'Rainbow_bunny15'
+            name:'0000s_0002_krasnyj'
         },
         {
             type:'base',
-            name:'Black_bunny40'
-        },{
-            type:'base',
-            name:'Metal_bunny40'
+            name:'0000s_0003_fioletovyj'
         },
         {
             type:'base',
-            name:'Gold_bunny30'
-        },{
-            type:'base',
-            name:'Thermal_bunny15'
+            name:'0000s_0004_teplovizor'
         },
         {
             type:'base',
-            name:'Violet_bunny30'
-        },{
-            type:'base',
-            name:'Red_bunny30'
+            name:'0000s_0005_zoloto'
         },
         {
             type:'base',
-            name:'Aluminum_bunny20'
-        },{
-            type:'base',
-            name:'Recycled_plastic_bunny10'
+            name:'0000s_0006_hrom'
         },
         {
             type:'base',
-            name:'White_bunny_e40'
-        },{
-            type:'base',
-            name:'Petrol_bunny_e10'
+            name:'0000s_0007_chernyj'
         },
         {
             type:'base',
-            name:'Pinc_bunny_e30'
-        },{
-            type:'base',
-            name:'Blue_bunny_e30'
+            name:'0000s_0008_raduzhnyj'
         },
         {
             type:'base',
-            name:'Rainbow_bunny_e15'
-        },{
-            type:'base',
-            name:'Black_bunny_e40'
+            name:'0000s_0009_goluboj'
         },
         {
             type:'base',
-            name:'Silver_bunny_e30'
+            name:'0000s_0010_rozovyj'
+        },
+        {
+            type:'base',
+            name:'0000s_0011_golograficheskij'
+        },
+        {
+            type:'base',
+            name:'0000s_0012_belyj'
+        },
+        {
+            type:'base',
+            name:'Ear_0000s_0000s_0000_pererabotannyj-plastik'
+        },
+        {
+            type:'base',
+            name:'Ear_0000s_0000s_0001_inej'
+        },
+        {
+            type:'base',
+            name:'Ear_0000s_0000s_0002_krasnyj-copy'
+        },
+        {
+            type:'base',
+            name:'Ear_0000s_0000s_0003_fioletovyj1'
+        },
+        {
+            type:'base',
+            name:'Ear_0000s_0000s_0004_teplovizor'
+        },
+        {
+            type:'base',
+            name:'Ear_0000s_0000s_0005_zoloto'
+        },
+        {
+            type:'base',
+            name:'Ear_0000s_0000s_0006_hrom'
+        },
+        {
+            type:'base',
+            name:'Ear_0000s_0000s_0007_chernyj'
+        },
+        {
+            type:'base',
+            name:'Ear_0000s_0000s_0008_raduzhnyj'
+        },
+        {
+            type:'base',
+            name:'Ear_0000s_0000s_0009_goluboj'
+        },
+        {
+            type:'base',
+            name:'Ear_0000s_0000s_0010_rozovyj'
+        },
+        {
+            type:'base',
+            name:'Ear_0000s_0000s_0011_golograficheskij'
+        },
+        {
+            type:'base',
+            name:'Ear_0000s_0000s_0012_belyj'
+        },
+        {
+            type:'base',
+            name:'Rabbits_0000s_0000s_0000_pererabotannyj-plastik'
+        },
+        {
+            type:'base',
+            name:'Rabbits_0000s_0000s_0001_inej'
+        },
+        {
+            type:'base',
+            name:'Rabbits_0000s_0000s_0002_krasnyj-copy'
+        },
+        {
+            type:'base',
+            name:'Rabbits_0000s_0000s_0003_fioletovyj'
+        },
+        {
+            type:'base',
+            name:'Rabbits_0000s_0000s_0004_teplovizor'
+        },
+        {
+            type:'base',
+            name:'Rabbits_0000s_0000s_0005_zoloto'
+        },
+        {
+            type:'base',
+            name:'Rabbits_0000s_0000s_0006_hrom'
+        },
+        {
+            type:'base',
+            name:'Rabbits_0000s_0000s_0007_chernyj'
+        },
+        {
+            type:'base',
+            name:'Rabbits_0000s_0000s_0008_raduzhnyj'
+        },
+        {
+            type:'base',
+            name:'Rabbits_0000s_0000s_0009_goluboj'
+        },
+        {
+            type:'base',
+            name:'Rabbits_0000s_0000s_0010_rozovyj'
+        },
+        {
+            type:'base',
+            name:'Rabbits_0000s_0000s_0011_golograficheskij'
+        },
+        {
+            type:'base',
+            name:'Rabbits_0000s_0000s_0012_belyj'
+        },
+        {
+            type:'background',
+            name:'BG_0000s_0000_fioletovyj'
+        },
+        {
+            type:'background',
+            name:'BG_0000s_0001_chernyj-fon'
+        },
+        {
+            type:'background',
+            name:'BG_0000s_0002_belyj-fon'
+        },
+        {
+            type:'background',
+            name:'BG_0000s_0003_retro-rzhavchina'
+        },
+        {
+            type:'background',
+            name:'BG_0000s_0004_retro'
+        },
+        {
+            type:'background',
+            name:'BG_0000s_0005_neomorfizm'
+        },
+        {
+            type:'background',
+            name:'BG_0000s_0006_karton'
+        },
+        {
+            type:'background',
+            name:'BG_0000s_0007_shoukejs-belyj'
+        },
+        {
+            type:'background',
+            name:'BG_0000s_0008_neonovyj-fon-sinij'
+        },
+        {
+            type:'background',
+            name:'BG_0000s_0009_neonovyj-fon'
+        },
+        {
+            type:'background',
+            name:'BG_0000s_0010_luna-bolshaja'
+        },
+        {
+            type:'background',
+            name:'BG_0000s_0011_luna'
+        },
+        {
+            type:'background',
+            name:'BG_0000s_0012_svetlyj-golograficheskij'
+        },
+        {
+            type:'background',
+            name:'BG_0000s_0013_golograficheskij'
+        },
+        {
+            type:'background',
+            name:'BG_0000s_0014_futurizm-krug'
+        },
+        {
+            type:'background',
+            name:'BG_0000s_0015_spotlajt-seryj'
+        },
+        {
+            type:'background',
+            name:'BG_0000s_0016_spotlajt-belyj'
+        },
+        {
+            type:'clothes',
+            name:'Clothes_0000s_0000_policija'
+        },
+        {
+            type:'clothes',
+            name:'Clothes_0000s_0000s_0000_chernyj-skotch'
+        },
+        {
+            type:'clothes',
+            name:'Clothes_0000s_0000s_0001_rozovyj-skotch'
+        },
+        {
+            type:'clothes',
+            name:'Clothes_0000s_0000s_0002_skotch'
+        },
+        {
+            type:'clothes',
+            name:'Clothes_0000s_0001_zakljuchennyj'
+        },
+        {
+            type:'clothes',
+            name:'Clothes_0000s_0002_reper'
+        },
+        {
+            type:'clothes',
+            name:'Clothes_0000s_0003_sloj-28'
+        },
+        {
+            type:'clothes',
+            name:'Clothes_0000s_0004_sloj-28'
+        },
+        {
+            type:'clothes',
+            name:'Clothes_0000s_0005_sloj-28'
+        },
+        {
+            type:'clothes',
+            name:'Clothes_0000s_0006_Apple-morkovka-logo'
+        },
+        {
+            type:'clothes',
+            name:'Clothes_0000s_0007_kostjum-betmena'
+        },
+        {
+            type:'clothes',
+            name:'Clothes_0000s_0008_kostjum'
+        },
+        {
+            type:'ears',
+            name:'Ears_0000s_0000_pravoe-uho-serebrjanaja-serezhka'
+        },
+        {
+            type:'ears',
+            name:'Ears_0000s_0001_levoe-uho-serebrjanaja-serezhka'
+        },
+        {
+            type:'ears',
+            name:'Ears_0000s_0002_pravoe-uho-zolotaja-serezhka'
+        },
+        {
+            type:'ears',
+            name:'Ears_0000s_0003_levoe-uho-zolotaja-serezhka'
+        },
+        {
+            type:'ears',
+            name:'Ears_0000s_0004_rozovye-mehovye-ushi'
+        },
+        {
+            type:'ears',
+            name:'Ears_0000s_0005_meh-raduzhnyj'
+        },
+        {
+            type:'ears',
+            name:'Ears_0000s_0006_seryj-meh-ushi'
+        },
+        {
+            type:'ears',
+            name:'Ears_0000s_0007_mehovye-ushi'
+        },
+        {
+            type:'eyes',
+            name:'Eyes_0000s_0000_glaza-neon-strogie'
+        },
+        {
+            type:'eyes',
+            name:'Eyes_0000s_0000s_0000_chernaja-kraska'
+        },
+        {
+            type:'eyes',
+            name:'Eyes_0000s_0000s_0001_rozovaja-kraska'
+        },
+        {
+            type:'eyes',
+            name:'Eyes_0000s_0001_glaza-perforacija'
+        },
+        {
+            type:'eyes',
+            name:'Eyes_0000s_0001s_0000_chernye-pugovicy'
+        },
+        {
+            type:'eyes',
+            name:'Eyes_0000s_0001s_0001_negativ-pugovicy'
+        },
+        {
+            type:'eyes',
+            name:'Eyes_0000s_0001s_0002_raduzhnye-pugovicy'
+        },
+        {
+            type:'eyes',
+            name:'Eyes_0000s_0001s_0003_belye-pugovicy'
+        },
+        {
+            type:'eyes',
+            name:'Eyes_0000s_0002s_0000_glaza-chernyj-skotch'
+        },
+        {
+            type:'eyes',
+            name:'Eyes_0000s_0002s_0001_glaza-rozovyj-skotch'
+        },
+        {
+            type:'eyes',
+            name:'Eyes_0000s_0002s_0002_glaza-skotch'
+        },
+        {
+            type:'eyes',
+            name:'Eyes_0000s_0004s_0000_glaza-pikselnye-serdechki'
+        },
+        {
+            type:'eyes',
+            name:'Eyes_0000s_0004s_0001_glaza-pikselnye-grustnye'
+        },
+        {
+            type:'eyes',
+            name:'Eyes_0000s_0004s_0002_glaza-pikselnye'
+        },
+        {
+            type:'faces',
+            name:'Face_0000s_0000_maska-betmena'
+        },
+        {
+            type:'faces',
+            name:'Face_0000s_0000s_0000_lyzhnaja-maska'
+        },
+        {
+            type:'faces',
+            name:'Face_0000s_0000s_0001_ochki-temnye'
+        },
+        {
+            type:'faces',
+            name:'Face_0000s_0000s_0002_ochki-prozrachnye'
+        },
+        {
+            type:'faces',
+            name:'Face_0000s_0001_medicinskaja-maska'
+        },
+        {
+            type:'faces',
+            name:'Face_0000s_0002_krolik-v-golove'
+        },
+        {
+            type:'faces',
+            name:'Face_0000s_0003_kolco-v-nos-serebro'
+        },
+        {
+            type:'faces',
+            name:'Face_0000s_0004_kolco-v-nos-zoloto'
+        },
+        {
+            type:'hats',
+            name:'_0000s_0000_policejskaja-kepka'
+        },
+        {
+            type:'hats',
+            name:'_0000s_0000s_0000_chernaja-kepka-morkovka'
+        },
+        {
+            type:'hats',
+            name:'_0000s_0000s_0001_chernaja-kepka'
+        },
+        {
+            type:'hats',
+            name:'_0000s_0000s_0002_belaja-kepka-morkovka-'
+        },
+        {
+            type:'hats',
+            name:'_0000s_0000s_0003_belaja-kepka'
+        },
+        {
+            type:'hats',
+            name:'_0000s_0001s_0000_serebrjanaja-korona'
+        },
+        {
+            type:'hats',
+            name:'_0000s_0001s_0001_zolotaja-korona'
+        },
+        {
+            type:'hats',
+            name:'_0000s_0001s_0002_chernaja-korona'
+        },
+        {
+            type:'hats',
+            name:'_0000s_0001s_0003_korona-belaja'
+        },
+        {
+            type:'hats',
+            name:'_0000s_0002s_0000_shapochka-mjatnaja'
+        },
+        {
+            type:'hats',
+            name:'_0000s_0002s_0001_shapochka-rozovaja'
+        },
+        {
+            type:'hats',
+            name:'_0000s_0002s_0002_shapochka-chernaja'
+        },
+        {
+            type:'hats',
+            name:'_0000s_0002s_0003_shapochka-korichnevaja'
+        },
+        {
+            type:'hats',
+            name:'_0000s_0002s_0004_shapochka-belaja'
+        },
+        {
+            type:'hats',
+            name:'_0000s_0003s_0000_balaklava-chernaja'
+        },
+        {
+            type:'hats',
+            name:'_0000s_0003s_0001_balaklava-rozovaja'
+        },
+        {
+            type:'hats',
+            name:'_0000s_0003s_0002_balaklavaja-mjatnaja'
+        },
+        {
+            type:'hats',
+            name:'_0000s_0003s_0003_balaklava-belaja'
+        },
+        {
+            type:'left',
+            name:'L-hand_0000s_0000_avtomat'
+        },
+        {
+            type:'left',
+            name:'L-hand_0000s_0001_bita'
+        },
+        {
+            type:'left',
+            name:'L-hand_0000s_0002_shlepalka-rrrr'
+        },
+        {
+            type:'left',
+            name:'L-hand_0000s_0003_molotok'
+        },
+        {
+            type:'left',
+            name:'L-hand_0000s_0004_topor'
+        },
+        {
+            type:'left',
+            name:'L-hand_0000s_0005_morozhennoe'
+        },
+        {
+            type:'mouth',
+            name:'Mouth_0000s_0000_zashityj-parakordom'
+        },
+        {
+            type:'mouth',
+            name:'Mouth_0000s_0000s_0000_ulybka-pikselnaja'
+        },
+        {
+            type:'mouth',
+            name:'Mouth_0000s_0000s_0001_rot-pikselnyj-grustnyj'
+        },
+        {
+            type:'mouth',
+            name:'Mouth_0000s_0000s_0002_rot-pikselnyj'
+        },
+        {
+            type:'mouth',
+            name:'Mouth_0000s_0001_Fuck-off'
+        },
+        {
+            type:'mouth',
+            name:'Mouth_0000s_0001s_0000_serebrjanaja-morkovka'
+        },
+        {
+            type:'mouth',
+            name:'Mouth_0000s_0001s_0001_zolotaja-morkovka'
+        },
+        {
+            type:'mouth',
+            name:'Mouth_0000s_0001s_0002_morkovka-raduga'
+        },
+        {
+            type:'mouth',
+            name:'Mouth_0000s_0001s_0003_morkovka'
+        },
+        {
+            type:'mouth',
+            name:'Mouth_0000s_0002_Fuck-You'
+        },
+        {
+            type:'mouth',
+            name:'Mouth_0000s_0002s_0000_rot-chernyj-skotch'
+        },
+        {
+            type:'mouth',
+            name:'Mouth_0000s_0002s_0001_rot-rozovyj-skotch'
+        },
+        {
+            type:'mouth',
+            name:'Mouth_0000s_0002s_0002_rot-skotch'
+        },
+        {
+            type:'mouth',
+            name:'Mouth_0000s_0003_zuby'
+        },
+        {
+            type:'mouth',
+            name:'Mouth_0000s_0003s_0000_mech-rozovyj'
+        },
+        {
+            type:'mouth',
+            name:'Mouth_0000s_0003s_0001_mech-'
+        },
+        {
+            type:'mouth',
+            name:'Mouth_0000s_0003s_0002_Layer-2'
+        },
+        {
+            type:'mouth',
+            name:'Mouth_0000s_0004_vampir'
+        },
+        {
+            type:'mouth',
+            name:'Mouth_0000s_0005_rot-perforacija'
+        },
+        {
+            type:'necklace',
+            name:'Necklace_0000s_0000s_0000_dollar-zoloto'
+        },
+        {
+            type:'necklace',
+            name:'Necklace_0000s_0000s_0001_dollar-serebro'
+        },
+        {
+            type:'necklace',
+            name:'Necklace_0000s_0001s_0000_Playboy-zoloto'
+        },
+        {
+            type:'necklace',
+            name:'Necklace_0000s_0001s_0001_Playboy-serebro'
+        },
+        {
+            type:'necklace',
+            name:'Necklace_0000s_0002s_0000_morkovka-kulon-zolto'
+        },
+        {
+            type:'necklace',
+            name:'Necklace_0000s_0002s_0001_morkovka-kulon-serebro'
+        },
+        {
+            type:'necklace',
+            name:'ton-serebro-1'
+        },
+        {
+            type:'necklace',
+            name:'ton-zoloto-1'
+        },
+        {
+            type:'overhead',
+            name:'Over-head_0000s_0000_znachok-efira-sims-rozovyj'
+        },
+        {
+            type:'overhead',
+            name:'Over-head_0000s_0001_znachok-efira-sims-zelenyj'
+        },
+        {
+            type:'right',
+            name:'R-hand_0000s_0000_avtomat'
+        },
+        {
+            type:'right',
+            name:'R-hand_0000s_0001_serebrjannyj-braslet'
+        },
+        {
+            type:'right',
+            name:'R-hand_0000s_0002_zolotoj-braslet'
+        },
+        {
+            type:'right',
+            name:'R-hand_0000s_0003_fitnes-braslet'
+        },
+        {
+            type:'right',
+            name:'R-hand_0000s_0004_chasy'
         },
     ]
 
@@ -232,17 +721,23 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
-          <div className={'w-5/12 bg-red-600 h-[100vh]'}>
-              <div className={'border-2 border-yellow-500 h-[55%] flex justify-center content-center items-center'}>
-                  <div className={'w-[310px] h-[450px]'}>
+          <div className={'w-full sm:w-[400px] h-[100vh]'}>
+              <div className={'h-[55%] flex justify-center content-center items-center'}>
+                  <div className={'w-[229px] h-[330px] sm:w-[240px] sm:h-[347px] z-10'}>
                       <BunnyGeneration bunny={bunny}></BunnyGeneration>
                   </div>
               </div>
-              <div className={'border-2 border-yellow-500 h-[5%]'}>
-                  <CategoryBar currenTab={currenTab} setCurrentTab={changeCurrentTab}></CategoryBar>
+              <div className={'h-[15%] flex items-center justify-center rounded-3xl relative z-[998]'}>
+                  <svg width="100%" height="100%" viewBox="0 0 638 155" fill="none" xmlns="http://www.w3.org/2000/svg" className={'absolute bottom-0'}>
+                      <path d="M637.58 58.8001V96.0801C637.58 111.672 631.386 126.626 620.361 137.651C609.336 148.676 594.382 154.87 578.79 154.87H58.79C43.1979 154.87 28.2444 148.676 17.2192 137.651C6.19391 126.626 0 111.672 0 96.0801V58.7901C0 43.198 6.19391 28.2446 17.2192 17.2193C28.2444 6.19405 43.1979 0.000132095 58.79 0.000132095H138.41C139.885 0.00339657 141.308 0.544499 142.413 1.52204C143.517 2.49959 144.227 3.84645 144.41 5.31013C145.709 15.0321 150.488 23.9538 157.861 30.4223C165.234 36.8908 174.702 40.4677 184.51 40.4901H453.05C462.864 40.4749 472.339 36.9014 479.718 30.4322C487.097 23.963 491.88 15.0372 493.18 5.31013C493.35 3.84124 494.056 2.48683 495.164 1.50685C496.271 0.52686 497.701 -0.00967458 499.18 0.000132095H578.8C594.391 0.00543525 609.342 6.20275 620.365 17.2293C631.388 28.2559 637.58 43.2089 637.58 58.8001V58.8001Z" fill="white"/>
+                  </svg>
+                  <div className={'w-[90%] h-3/4 absolute bottom-0'}>
+                      <CategoryBar currenTab={currenTab} setCurrentTab={changeCurrentTab}></CategoryBar>
+                  </div>
               </div>
-              <div className={'border-2 border-yellow-500 h-[40%]'}>
-                  <InventoryCards  changeBase={changeBase} changeMouth={changeMouth} changeEyes={changeEyes} changeEars={changeEars} changeClothes={changeClothes} changeHat={changeHat} changeLeft={changeLeft} changeRight={changeRight} changeNecklace={changeNecklace} changeFace={changeFace} changeOverhead={changeOverhead} bunny={{bunny}} inventory={inventory}></InventoryCards>
+              <div className={'h-[30%] bg-transparent relative z-[999]'}>
+                  <div className={'absolute bg-white w-full h-5/6 rounded-l-3xl rounded-r-3xl rounded-b-none bottom-0'}></div>
+                  <InventoryCards inventory={inventory} bunny={{bunny}} attachItemToBunny={attachItemToBunny} currentTab={currenTab}></InventoryCards>
               </div>
           </div>
       </main>

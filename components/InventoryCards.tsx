@@ -1,54 +1,42 @@
 import React from 'react';
+import Image from "next/image";
+import InventoryItemInterface from "../interfaces/InventoryItem";
 
-interface InventoryItemInterface{
-    type:string,
-    name:string,
-}
-
-interface inventoryInterface{
+interface inventoryInterface {
     inventory: Array<InventoryItemInterface>,
 }
 
-interface BunnyInterface{
-    bunny:{
-        base?:InventoryItemInterface,
-        mouth?:InventoryItemInterface,
-        eyes?:InventoryItemInterface,
-        ears?:InventoryItemInterface,
-        face?:InventoryItemInterface,
-        hat?:InventoryItemInterface,
-        clothes?:InventoryItemInterface,
-        left?:InventoryItemInterface,
-        right?:InventoryItemInterface,
-        necklace?:InventoryItemInterface,
-        overhead?:InventoryItemInterface,
-    }
+import BunnyInterface from "../interfaces/BunnyInterface";
+
+interface InventoryCardsInterface extends inventoryInterface {
+    attachItemToBunny: (place: string|"background" | "base" | "eyes" | "mouth" | "left" | "right" | "necklace" | "face" | "clothes" | "hat" | "overhead" | "ears", item: InventoryItemInterface) => any,
+    bunny: BunnyInterface,
+    currentTab: string|"background" | "base" | "eyes" | "mouth" | "left" | "right" | "necklace" | "face" | "clothes" | "hat" | "overhead" | "ears",
 }
 
-interface InventoryCardsInterface extends  inventoryInterface{
-    changeBase:(item:InventoryItemInterface)=>void,
-    changeMouth:(item:InventoryItemInterface)=>void,
-    changeEyes:(item:InventoryItemInterface)=>void,
-    changeEars:(item:InventoryItemInterface)=>void,
-    changeClothes:(item:InventoryItemInterface)=>void,
-    changeHat:(item:InventoryItemInterface)=>void,
-    changeLeft:(item:InventoryItemInterface)=>void,
-    changeRight:(item:InventoryItemInterface)=>void,
-    changeNecklace:(item:InventoryItemInterface)=>void,
-    changeFace:(item:InventoryItemInterface)=>void,
-    changeOverhead:(item:InventoryItemInterface)=>void,
-    bunny:BunnyInterface,
-}
-
-const InventoryCards = ({inventory, changeClothes, changeEyes, changeEars, changeHat, changeLeft, changeMouth, changeRight, changeNecklace, changeOverhead, changeFace, changeBase, bunny}:InventoryCardsInterface) => {
+const InventoryCards = ({inventory, bunny, attachItemToBunny, currentTab}: InventoryCardsInterface) => {
     return (
-        <div className={'w-full h-full'}>
-            <div className={'grid grid-cols-3 gap-2 grid-rows-3'}>
-                <button onClick={()=>{changeBase({type:'base',name:'Black_bunny40'})}}>
-                    SUASADAS
-                </button>
+        <div className={'inventory-container absolute top-0'}>
+            <div className={'grid grid-cols-3 sm:grid-cols-3 gap-1 justify-around overflow-y-scroll max-h-full'}>
+                {inventory.filter((obj: InventoryItemInterface) => {
+                    return obj.type == currentTab;
+                }).map((item: InventoryItemInterface) => {
+                    let clas = '';
+                    if (bunny.bunny[item.type as "base"|"background" | "eyes" | "mouth" | "left" | "right" | "necklace" | "face" | "clothes" | "hat" | "overhead" | "ears"]?.name == item.name) {
+                        clas = 'rounded-xl cursor-auto bg-[url("../public/images/cards_bg_active.svg")]'
+                    } else {
+                        clas = ''
+                    }
+                    return <div key={item.name} onClick={() => {
+                        attachItemToBunny(currentTab, item)
+                    }} className={'auto-rows-fr min-h-[100px] flex content-center justify-center mt-3 flex-wrap cursor-pointer'}>
+                        <div className={'bg-cover w-[100px] rounded-xl h-[100px] relative bg-[url("../public/images/cards_bg.svg")]' + clas}><Image
+                            src={'/images/miniatures/' + item.type + '/' + item.name + '.png'}
+                            layout={'fill'}></Image></div>
+                        {/*<p className={'font-bold w-full text-center'}>{item.name}</p>*/}
+                    </div>
+                })}
             </div>
-
         </div>
     );
 };
