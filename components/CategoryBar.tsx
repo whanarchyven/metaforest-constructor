@@ -39,8 +39,9 @@ const CategoryBar = ({currenTab, setCurrentTab}: categoryBarInterface) => {
         //         }} className={clas}>{ucFirst(item)}</p>)
         //     })}
         // </div>
+
         <Swiper
-            slidesPerView={8}
+            slidesPerView={5}
             spaceBetween={0}
             centeredSlides={true}
             className="mySwiper"
@@ -51,9 +52,9 @@ const CategoryBar = ({currenTab, setCurrentTab}: categoryBarInterface) => {
         >
             {tabs.map(item=>{
                 return(
-                    <SwiperSlide>
+                    <SwiperSlide key={item}>
                         {({ isActive }) => (
-                            <div className={'w-[60px] h-[60px] relative rounded-full'} key={item}>
+                            <div className={'w-[50px] h-[50px] relative rounded-full'} key={item}>
                                 {isActive?
                                     <div className={'w-full rounded-full h-full rounded-full'}>
                                         <Image src={'/images/tab_icons/'+item+'.svg'} className={'rounded-full'} layout={'fill'}></Image>

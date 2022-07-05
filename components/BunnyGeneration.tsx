@@ -36,11 +36,13 @@ const BunnyGeneration = (bunny: BunnyInterface) => {
             }
         }
     }
-    return <div className={'w-full h-full relative'}>
-        <button onClick={() => {
+    return <div className={'w-full h-full flex justify-center relative'}>
+        <div onClick={() => {
             downloadImage()
-        }} className={'h-12 absolute bottom-[-15px] sm:bottom-[-20px] z-50 bg-[#7DD9A3] w-full rounded-full font-bold'}>Save my Bunny!
-        </button>
+        }} className={'h-12 absolute bottom-[-90px] cursor-pointer sm:bottom-[-60px] z-50 green-gradient w-10/12 rounded-full flex justify-center items-center font-bold'}>
+            <div className={'relative inline-block w-6 h-5 mr-2'}><Image src={'/images/download_button.svg'} layout={'fill'}/></div>
+            <p className={'inline-block'}>Save your bunny</p>
+        </div>
         <a ref={linkRef} download={'myBunny.png'} className={'absolute top-52 z-50 hidden'}>EBASH</a>
         {list.map((item, counter) => {
             if (item[1].name!='') {

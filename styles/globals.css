@@ -92,8 +92,45 @@
     align-items: center;
 }
 .swiper-button-prev{
-    color: #BFBFBF;
+    color: #BFBFBF !important;
+    left: 0px !important;
 }
 .swiper-button-next{
-    color: #BFBFBF;
+    color: #BFBFBF !important;
+    right: 0px !important;
+}
+
+.swiper-button-prev::after{
+    font-size: 30px !important;
+}
+.swiper-button-next::after{
+    font-size: 30px !important;
+}
+
+.green-gradient{
+    background: linear-gradient(90deg, #64D2CC 0.17%, #29FF9E 99.99%);
+    box-shadow: 0px 4px 9px rgba(24, 103, 103, 0.25);
+}
+
+/* W3C standard
+   сейчас только для Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #D3D3D3 #BEC0C7;
+}
+
+/* для Chrome/Edge/Safari */
+*::-webkit-scrollbar {
+    height: 12px;
+    width: 12px;
+    border-radius: 10px;
+}
+*::-webkit-scrollbar-track {
+    background: #BEC0C7;
+    border-radius: 10px;
+}
+*::-webkit-scrollbar-thumb {
+    background-color: #D3D3D3;
+    border-radius: 5px;
+    border: 3px solid #BEC0C7;
 }

@@ -22,7 +22,7 @@ const Home: NextPage = () => {
         },
         base:{
             type:'base',
-            name:'Aluminum_bunny20',
+            name:'0000s_0012_belyj'
         },
         mouth:{
             type:'mouth',
@@ -88,433 +88,628 @@ const Home: NextPage = () => {
     const inventory=[
         {
             type:'base',
-            name:'White_bunny40'
+            name:'0000s_0000_pererabotannyj-plastik'
         },
         {
             type:'base',
-            name:'Petrol_bunny10'
-        },{
-            type:'base',
-            name:'Pink_bunny40'
+            name:'0000s_0001_folga'
         },
         {
             type:'base',
-            name:'Blue_bunny40'
-        },{
-            type:'base',
-            name:'Rainbow_bunny15'
+            name:'0000s_0002_krasnyj'
         },
         {
             type:'base',
-            name:'Black_bunny40'
-        },{
-            type:'base',
-            name:'Metal_bunny40'
+            name:'0000s_0003_fioletovyj'
         },
         {
             type:'base',
-            name:'Gold_bunny30'
-        },{
-            type:'base',
-            name:'Thermal_bunny15'
+            name:'0000s_0004_teplovizor'
         },
         {
             type:'base',
-            name:'Violet_bunny30'
-        },{
-            type:'base',
-            name:'Red_bunny30'
+            name:'0000s_0005_zoloto'
         },
         {
             type:'base',
-            name:'Aluminum_bunny20'
-        },{
-            type:'base',
-            name:'Recycled_plastic_bunny10'
+            name:'0000s_0006_hrom'
         },
         {
             type:'base',
-            name:'White_bunny_e40'
-        },{
-            type:'base',
-            name:'Petrol_bunny_e10'
+            name:'0000s_0007_chernyj'
         },
         {
             type:'base',
-            name:'Pinc_bunny_e30'
-        },{
-            type:'base',
-            name:'Blue_bunny_e30'
+            name:'0000s_0008_raduzhnyj'
         },
         {
             type:'base',
-            name:'Rainbow_bunny_e15'
-        },{
-            type:'base',
-            name:'Black_bunny_e40'
+            name:'0000s_0009_goluboj'
         },
         {
             type:'base',
-            name:'Silver_bunny_e30'
-        },{
+            name:'0000s_0010_rozovyj'
+        },
+        {
+            type:'base',
+            name:'0000s_0011_golograficheskij'
+        },
+        {
+            type:'base',
+            name:'0000s_0012_belyj'
+        },
+        {
+            type:'base',
+            name:'Ear_0000s_0000s_0000_pererabotannyj-plastik'
+        },
+        {
+            type:'base',
+            name:'Ear_0000s_0000s_0001_inej'
+        },
+        {
+            type:'base',
+            name:'Ear_0000s_0000s_0002_krasnyj-copy'
+        },
+        {
+            type:'base',
+            name:'Ear_0000s_0000s_0003_fioletovyj1'
+        },
+        {
+            type:'base',
+            name:'Ear_0000s_0000s_0004_teplovizor'
+        },
+        {
+            type:'base',
+            name:'Ear_0000s_0000s_0005_zoloto'
+        },
+        {
+            type:'base',
+            name:'Ear_0000s_0000s_0006_hrom'
+        },
+        {
+            type:'base',
+            name:'Ear_0000s_0000s_0007_chernyj'
+        },
+        {
+            type:'base',
+            name:'Ear_0000s_0000s_0008_raduzhnyj'
+        },
+        {
+            type:'base',
+            name:'Ear_0000s_0000s_0009_goluboj'
+        },
+        {
+            type:'base',
+            name:'Ear_0000s_0000s_0010_rozovyj'
+        },
+        {
+            type:'base',
+            name:'Ear_0000s_0000s_0011_golograficheskij'
+        },
+        {
+            type:'base',
+            name:'Ear_0000s_0000s_0012_belyj'
+        },
+        {
+            type:'base',
+            name:'Rabbits_0000s_0000s_0000_pererabotannyj-plastik'
+        },
+        {
+            type:'base',
+            name:'Rabbits_0000s_0000s_0001_inej'
+        },
+        {
+            type:'base',
+            name:'Rabbits_0000s_0000s_0002_krasnyj-copy'
+        },
+        {
+            type:'base',
+            name:'Rabbits_0000s_0000s_0003_fioletovyj'
+        },
+        {
+            type:'base',
+            name:'Rabbits_0000s_0000s_0004_teplovizor'
+        },
+        {
+            type:'base',
+            name:'Rabbits_0000s_0000s_0005_zoloto'
+        },
+        {
+            type:'base',
+            name:'Rabbits_0000s_0000s_0006_hrom'
+        },
+        {
+            type:'base',
+            name:'Rabbits_0000s_0000s_0007_chernyj'
+        },
+        {
+            type:'base',
+            name:'Rabbits_0000s_0000s_0008_raduzhnyj'
+        },
+        {
+            type:'base',
+            name:'Rabbits_0000s_0000s_0009_goluboj'
+        },
+        {
+            type:'base',
+            name:'Rabbits_0000s_0000s_0010_rozovyj'
+        },
+        {
+            type:'base',
+            name:'Rabbits_0000s_0000s_0011_golograficheskij'
+        },
+        {
+            type:'base',
+            name:'Rabbits_0000s_0000s_0012_belyj'
+        },
+        {
+            type:'background',
+            name:'BG_0000s_0000_fioletovyj'
+        },
+        {
+            type:'background',
+            name:'BG_0000s_0001_chernyj-fon'
+        },
+        {
+            type:'background',
+            name:'BG_0000s_0002_belyj-fon'
+        },
+        {
+            type:'background',
+            name:'BG_0000s_0003_retro-rzhavchina'
+        },
+        {
+            type:'background',
+            name:'BG_0000s_0004_retro'
+        },
+        {
+            type:'background',
+            name:'BG_0000s_0005_neomorfizm'
+        },
+        {
+            type:'background',
+            name:'BG_0000s_0006_karton'
+        },
+        {
+            type:'background',
+            name:'BG_0000s_0007_shoukejs-belyj'
+        },
+        {
+            type:'background',
+            name:'BG_0000s_0008_neonovyj-fon-sinij'
+        },
+        {
+            type:'background',
+            name:'BG_0000s_0009_neonovyj-fon'
+        },
+        {
+            type:'background',
+            name:'BG_0000s_0010_luna-bolshaja'
+        },
+        {
+            type:'background',
+            name:'BG_0000s_0011_luna'
+        },
+        {
+            type:'background',
+            name:'BG_0000s_0012_svetlyj-golograficheskij'
+        },
+        {
+            type:'background',
+            name:'BG_0000s_0013_golograficheskij'
+        },
+        {
+            type:'background',
+            name:'BG_0000s_0014_futurizm-krug'
+        },
+        {
+            type:'background',
+            name:'BG_0000s_0015_spotlajt-seryj'
+        },
+        {
+            type:'background',
+            name:'BG_0000s_0016_spotlajt-belyj'
+        },
+        {
             type:'clothes',
-            name:'Tape_Gray10'
-        },{
+            name:'Clothes_0000s_0000_policija'
+        },
+        {
             type:'clothes',
-            name:'Tape_pinck10'
-        },{
+            name:'Clothes_0000s_0000s_0000_chernyj-skotch'
+        },
+        {
             type:'clothes',
-            name:'Tape_black10'
-        },{
+            name:'Clothes_0000s_0000s_0001_rozovyj-skotch'
+        },
+        {
             type:'clothes',
-            name:'Business_suit10'
-        },{
+            name:'Clothes_0000s_0000s_0002_skotch'
+        },
+        {
             type:'clothes',
-            name:'Batman3'
-        },{
+            name:'Clothes_0000s_0001_zakljuchennyj'
+        },
+        {
             type:'clothes',
-            name:'Iron_man_icon3'
-        },{
+            name:'Clothes_0000s_0002_reper'
+        },
+        {
             type:'clothes',
-            name:'Pajama_pink10'
-        },{
+            name:'Clothes_0000s_0003_sloj-28'
+        },
+        {
             type:'clothes',
-            name:'Pajama_green10'
-        },{
+            name:'Clothes_0000s_0004_sloj-28'
+        },
+        {
             type:'clothes',
-            name:'Pajama_blue10'
-        },{
+            name:'Clothes_0000s_0005_sloj-28'
+        },
+        {
             type:'clothes',
-            name:'Hoody10'
-        },{
+            name:'Clothes_0000s_0006_Apple-morkovka-logo'
+        },
+        {
             type:'clothes',
-            name:'00710'
-        },{
+            name:'Clothes_0000s_0007_kostjum-betmena'
+        },
+        {
             type:'clothes',
-            name:'Police10'
-        },{
+            name:'Clothes_0000s_0008_kostjum'
+        },
+        {
             type:'ears',
-            name:'Gold_fur5'
-        },{
+            name:'Ears_0000s_0000_pravoe-uho-serebrjanaja-serezhka'
+        },
+        {
             type:'ears',
-            name:'Gray_fur5'
-        },{
+            name:'Ears_0000s_0001_levoe-uho-serebrjanaja-serezhka'
+        },
+        {
             type:'ears',
-            name:'Rainbow_fur3'
-        },{
+            name:'Ears_0000s_0002_pravoe-uho-zolotaja-serezhka'
+        },
+        {
             type:'ears',
-            name:'Pink_fur5'
-        },{
+            name:'Ears_0000s_0003_levoe-uho-zolotaja-serezhka'
+        },
+        {
             type:'ears',
-            name:'Left_ring_g10'
-        },{
+            name:'Ears_0000s_0004_rozovye-mehovye-ushi'
+        },
+        {
             type:'ears',
-            name:'Right_ring_g10'
-        },{
+            name:'Ears_0000s_0005_meh-raduzhnyj'
+        },
+        {
             type:'ears',
-            name:'Left_ring_s10'
-        },{
+            name:'Ears_0000s_0006_seryj-meh-ushi'
+        },
+        {
             type:'ears',
-            name:'Right_ring_s10'
-        },{
+            name:'Ears_0000s_0007_mehovye-ushi'
+        },
+        {
             type:'eyes',
-            name:'Priaty15'
-        },{
+            name:'Eyes_0000s_0000_glaza-neon-strogie'
+        },
+        {
             type:'eyes',
-            name:'Sad15'
-        },{
+            name:'Eyes_0000s_0000s_0000_chernaja-kraska'
+        },
+        {
             type:'eyes',
-            name:'Hurts15'
-        },{
+            name:'Eyes_0000s_0000s_0001_rozovaja-kraska'
+        },
+        {
             type:'eyes',
-            name:'ETH_g1'
-        },{
+            name:'Eyes_0000s_0001_glaza-perforacija'
+        },
+        {
             type:'eyes',
-            name:'ETH_p1'
-        },{
+            name:'Eyes_0000s_0001s_0000_chernye-pugovicy'
+        },
+        {
             type:'eyes',
-            name:'Tape_g10'
-        },{
+            name:'Eyes_0000s_0001s_0001_negativ-pugovicy'
+        },
+        {
             type:'eyes',
-            name:'Tape_p10'
-        },{
+            name:'Eyes_0000s_0001s_0002_raduzhnye-pugovicy'
+        },
+        {
             type:'eyes',
-            name:'Tape_b10'
-        },{
+            name:'Eyes_0000s_0001s_0003_belye-pugovicy'
+        },
+        {
             type:'eyes',
-            name:'Buttons_w40'
-        },{
+            name:'Eyes_0000s_0002s_0000_glaza-chernyj-skotch'
+        },
+        {
             type:'eyes',
-            name:'Buttons_r30'
-        },{
+            name:'Eyes_0000s_0002s_0001_glaza-rozovyj-skotch'
+        },
+        {
             type:'eyes',
-            name:'Buttons_bl40'
-        },{
+            name:'Eyes_0000s_0002s_0002_glaza-skotch'
+        },
+        {
             type:'eyes',
-            name:'Buttons_b40'
-        },{
+            name:'Eyes_0000s_0004s_0000_glaza-pikselnye-serdechki'
+        },
+        {
             type:'eyes',
-            name:'Divorces_p5'
-        },{
+            name:'Eyes_0000s_0004s_0001_glaza-pikselnye-grustnye'
+        },
+        {
             type:'eyes',
-            name:'Divorces_b5'
-        },{
-            type:'eyes',
-            name:'Normal60'
-        },{
-            type:'eyes',
-            name:'red5'
-        },{
+            name:'Eyes_0000s_0004s_0002_glaza-pikselnye'
+        },
+        {
             type:'faces',
-            name:'Sunglasses10'
-        },{
+            name:'Face_0000s_0000_maska-betmena'
+        },
+        {
             type:'faces',
-            name:'Ski_mask10'
-        },{
+            name:'Face_0000s_0000s_0000_lyzhnaja-maska'
+        },
+        {
             type:'faces',
-            name:'Silver_ring_n10'
-        },{
+            name:'Face_0000s_0000s_0001_ochki-temnye'
+        },
+        {
             type:'faces',
-            name:'Robot1'
-        },{
+            name:'Face_0000s_0000s_0002_ochki-prozrachnye'
+        },
+        {
             type:'faces',
-            name:'Mask7'
-        },{
+            name:'Face_0000s_0001_medicinskaja-maska'
+        },
+        {
             type:'faces',
-            name:'Gold_ring_n10'
-        },{
+            name:'Face_0000s_0002_krolik-v-golove'
+        },
+        {
             type:'faces',
-            name:'Glasses10'
-        },{
+            name:'Face_0000s_0003_kolco-v-nos-serebro'
+        },
+        {
             type:'faces',
-            name:'Batman_f5'
-        },{
+            name:'Face_0000s_0004_kolco-v-nos-zoloto'
+        },
+        {
             type:'hats',
-            name:'White_hat20'
-        },{
+            name:'_0000s_0000_policejskaja-kepka'
+        },
+        {
             type:'hats',
-            name:'White_hat_carrot10'
-        },{
+            name:'_0000s_0000s_0000_chernaja-kepka-morkovka'
+        },
+        {
             type:'hats',
-            name:'Police_hat10'
-        },{
+            name:'_0000s_0000s_0001_chernaja-kepka'
+        },
+        {
             type:'hats',
-            name:'Mask_w3'
-        },{
+            name:'_0000s_0000s_0002_belaja-kepka-morkovka-'
+        },
+        {
             type:'hats',
-            name:'Mask_p3'
-        },{
+            name:'_0000s_0000s_0003_belaja-kepka'
+        },
+        {
             type:'hats',
-            name:'Mask_g3'
-        },{
+            name:'_0000s_0001s_0000_serebrjanaja-korona'
+        },
+        {
             type:'hats',
-            name:'Mask_b3'
-        },{
+            name:'_0000s_0001s_0001_zolotaja-korona'
+        },
+        {
             type:'hats',
-            name:'Knitted_hat_w10'
-        },{
+            name:'_0000s_0001s_0002_chernaja-korona'
+        },
+        {
             type:'hats',
-            name:'Knitted_hat_p10'
-        },{
+            name:'_0000s_0001s_0003_korona-belaja'
+        },
+        {
             type:'hats',
-            name:'Knitted_hat_g10'
-        },{
+            name:'_0000s_0002s_0000_shapochka-mjatnaja'
+        },
+        {
             type:'hats',
-            name:'Knitted_hat_br10'
-        },{
+            name:'_0000s_0002s_0001_shapochka-rozovaja'
+        },
+        {
             type:'hats',
-            name:'Knitted_hat_b10'
-        },{
+            name:'_0000s_0002s_0002_shapochka-chernaja'
+        },
+        {
             type:'hats',
-            name:'Crown_w10'
-        },{
+            name:'_0000s_0002s_0003_shapochka-korichnevaja'
+        },
+        {
             type:'hats',
-            name:'Crown_s10'
-        },{
+            name:'_0000s_0002s_0004_shapochka-belaja'
+        },
+        {
             type:'hats',
-            name:'Crown_g10'
-        },{
+            name:'_0000s_0003s_0000_balaklava-chernaja'
+        },
+        {
             type:'hats',
-            name:'Crown_b10'
-        },{
+            name:'_0000s_0003s_0001_balaklava-rozovaja'
+        },
+        {
             type:'hats',
-            name:'Black_hat20'
-        },{
+            name:'_0000s_0003s_0002_balaklavaja-mjatnaja'
+        },
+        {
             type:'hats',
-            name:'Black_hat_carrot10'
-        },{
+            name:'_0000s_0003s_0003_balaklava-belaja'
+        },
+        {
             type:'left',
-            name:'Whip_l5'
-        },{
+            name:'L-hand_0000s_0000_avtomat'
+        },
+        {
             type:'left',
-            name:'Machine_l5'
-        },{
+            name:'L-hand_0000s_0001_bita'
+        },
+        {
             type:'left',
-            name:'Ice_cream_l5'
-        },{
+            name:'L-hand_0000s_0002_shlepalka-rrrr'
+        },
+        {
             type:'left',
-            name:'Hummer_l5'
-        },{
+            name:'L-hand_0000s_0003_molotok'
+        },
+        {
             type:'left',
-            name:'Bit_l5'
-        },{
+            name:'L-hand_0000s_0004_topor'
+        },
+        {
             type:'left',
-            name:'Axe_l5'
-        },{
+            name:'L-hand_0000s_0005_morozhennoe'
+        },
+        {
             type:'mouth',
-            name:'Vampire_m5'
-        },{
+            name:'Mouth_0000s_0000_zashityj-parakordom'
+        },
+        {
             type:'mouth',
-            name:'Tape_p_m10'
-        },{
+            name:'Mouth_0000s_0000s_0000_ulybka-pikselnaja'
+        },
+        {
             type:'mouth',
-            name:'Tape_g_m10'
-        },{
+            name:'Mouth_0000s_0000s_0001_rot-pikselnyj-grustnyj'
+        },
+        {
             type:'mouth',
-            name:'Tape_b_m10'
-        },{
+            name:'Mouth_0000s_0000s_0002_rot-pikselnyj'
+        },
+        {
             type:'mouth',
-            name:'Smile50'
-        },{
+            name:'Mouth_0000s_0001_Fuck-off'
+        },
+        {
             type:'mouth',
-            name:'Silver_carrot_m5'
-        },{
+            name:'Mouth_0000s_0001s_0000_serebrjanaja-morkovka'
+        },
+        {
             type:'mouth',
-            name:'Sewn_mouth5'
-        },{
+            name:'Mouth_0000s_0001s_0001_zolotaja-morkovka'
+        },
+        {
             type:'mouth',
-            name:'Sad_m30'
-        },{
+            name:'Mouth_0000s_0001s_0002_morkovka-raduga'
+        },
+        {
             type:'mouth',
-            name:'Rainbow_carrot_m5'
-        },{
+            name:'Mouth_0000s_0001s_0003_morkovka'
+        },
+        {
             type:'mouth',
-            name:'Normal_m50'
-        },{
+            name:'Mouth_0000s_0002_Fuck-You'
+        },
+        {
             type:'mouth',
-            name:'Jedi_sword_p_m5'
-        },{
+            name:'Mouth_0000s_0002s_0000_rot-chernyj-skotch'
+        },
+        {
             type:'mouth',
-            name:'Jedi_sword_g_m5'
-        },{
+            name:'Mouth_0000s_0002s_0001_rot-rozovyj-skotch'
+        },
+        {
             type:'mouth',
-            name:'Jedi_sword_b_m5'
-        },{
+            name:'Mouth_0000s_0002s_0002_rot-skotch'
+        },
+        {
             type:'mouth',
-            name:'Happy_m30'
-        },{
+            name:'Mouth_0000s_0003_zuby'
+        },
+        {
             type:'mouth',
-            name:'Gold_carrot_m5'
-        },{
+            name:'Mouth_0000s_0003s_0000_mech-rozovyj'
+        },
+        {
             type:'mouth',
-            name:'F_you_m5'
-        },{
+            name:'Mouth_0000s_0003s_0001_mech-'
+        },
+        {
             type:'mouth',
-            name:'F_off_m5'
-        },{
+            name:'Mouth_0000s_0003s_0002_Layer-2'
+        },
+        {
             type:'mouth',
-            name:'Carrot_m5'
-        },{
+            name:'Mouth_0000s_0004_vampir'
+        },
+        {
             type:'mouth',
-            name:'Bunny_teeth15'
-        },{
+            name:'Mouth_0000s_0005_rot-perforacija'
+        },
+        {
             type:'necklace',
-            name:'Playboy_silver10'
-        },{
+            name:'Necklace_0000s_0000s_0000_dollar-zoloto'
+        },
+        {
             type:'necklace',
-            name:'Playboy_gold10'
-        },{
+            name:'Necklace_0000s_0000s_0001_dollar-serebro'
+        },
+        {
             type:'necklace',
-            name:'ETH_siver_n5'
-        },{
+            name:'Necklace_0000s_0001s_0000_Playboy-zoloto'
+        },
+        {
             type:'necklace',
-            name:'ETH_gold_n5'
-        },{
+            name:'Necklace_0000s_0001s_0001_Playboy-serebro'
+        },
+        {
             type:'necklace',
-            name:'Dollar_silver10'
-        },{
+            name:'Necklace_0000s_0002s_0000_morkovka-kulon-zolto'
+        },
+        {
             type:'necklace',
-            name:'Dollar_gold10'
-        },{
+            name:'Necklace_0000s_0002s_0001_morkovka-kulon-serebro'
+        },
+        {
             type:'necklace',
-            name:'Carrot_silver_n5'
-        },{
+            name:'ton-serebro-1'
+        },
+        {
             type:'necklace',
-            name:'Carrot_gold_n5'
-        },{
+            name:'ton-zoloto-1'
+        },
+        {
             type:'overhead',
-            name:'ETH_icon_p3'
-        },{
-            type:'overhead',
-            name:'ETH_icon_g3'
-        },{
-            type:'right',
-            name:'Whatch_r10'
-        },{
-            type:'right',
-            name:'Machine_r5'
-        },{
-            type:'right',
-            name:'Health_bracelet_r5'
-        },{
-            type:'right',
-            name:'Chain_s_r10'
-        },{
-            type:'background',
-            name:'Standard'
-        },{
-            type:'background',
-            name:'White70'
-        },{
-            type:'background',
-            name:'Violet65'
-        },{
-            type:'background',
-            name:'Space17'
-        },{
-            type:'background',
-            name:'Shadow12'
-        },{
-            type:'background',
-            name:'petrol7'
-        },{
-            type:'background',
-            name:'Petrol27'
-        },{
-            type:'background',
-            name:'Pattern17'
-        },{
-            type:'background',
-            name:'Neon_square7'
-        },{
-            type:'background',
-            name:'Neon_cercle7'
-        },{
-            type:'background',
-            name:'Moon7'
-        },{
-            type:'background',
-            name:'Loony15'
-        },{
-            type:'background',
-            name:'Light17'
-        },{
-            type:'background',
-            name:'Labirint12'
-        },{
-            type:'background',
-            name:'Half_moon7'
-        },{
-            type:'background',
-            name:'CardBoard3'
-        },{
-            type:'background',
-            name:'Card3'
-        },{
-            type:'background',
-            name:'Black65'
+            name:'Over-head_0000s_0000_znachok-efira-sims-rozovyj'
         },
-
+        {
+            type:'overhead',
+            name:'Over-head_0000s_0001_znachok-efira-sims-zelenyj'
+        },
+        {
+            type:'right',
+            name:'R-hand_0000s_0000_avtomat'
+        },
+        {
+            type:'right',
+            name:'R-hand_0000s_0001_serebrjannyj-braslet'
+        },
+        {
+            type:'right',
+            name:'R-hand_0000s_0002_zolotoj-braslet'
+        },
+        {
+            type:'right',
+            name:'R-hand_0000s_0003_fitnes-braslet'
+        },
+        {
+            type:'right',
+            name:'R-hand_0000s_0004_chasy'
+        },
     ]
 
   return (
@@ -526,13 +721,13 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
-          <div className={'w-full sm:w-[600px] h-[100vh]'}>
-              <div className={'h-[50%] flex justify-center content-center items-center'}>
-                  <div className={'w-[229px] h-[330px] sm:w-[277px] sm:h-[400px] z-10'}>
+          <div className={'w-full sm:w-[400px] h-[100vh]'}>
+              <div className={'h-[55%] flex justify-center content-center items-center'}>
+                  <div className={'w-[229px] h-[330px] sm:w-[240px] sm:h-[347px] z-10'}>
                       <BunnyGeneration bunny={bunny}></BunnyGeneration>
                   </div>
               </div>
-              <div className={'h-[20%] flex items-center justify-center rounded-3xl relative z-[998]'}>
+              <div className={'h-[15%] flex items-center justify-center rounded-3xl relative z-[998]'}>
                   <svg width="100%" height="100%" viewBox="0 0 638 155" fill="none" xmlns="http://www.w3.org/2000/svg" className={'absolute bottom-0'}>
                       <path d="M637.58 58.8001V96.0801C637.58 111.672 631.386 126.626 620.361 137.651C609.336 148.676 594.382 154.87 578.79 154.87H58.79C43.1979 154.87 28.2444 148.676 17.2192 137.651C6.19391 126.626 0 111.672 0 96.0801V58.7901C0 43.198 6.19391 28.2446 17.2192 17.2193C28.2444 6.19405 43.1979 0.000132095 58.79 0.000132095H138.41C139.885 0.00339657 141.308 0.544499 142.413 1.52204C143.517 2.49959 144.227 3.84645 144.41 5.31013C145.709 15.0321 150.488 23.9538 157.861 30.4223C165.234 36.8908 174.702 40.4677 184.51 40.4901H453.05C462.864 40.4749 472.339 36.9014 479.718 30.4322C487.097 23.963 491.88 15.0372 493.18 5.31013C493.35 3.84124 494.056 2.48683 495.164 1.50685C496.271 0.52686 497.701 -0.00967458 499.18 0.000132095H578.8C594.391 0.00543525 609.342 6.20275 620.365 17.2293C631.388 28.2559 637.58 43.2089 637.58 58.8001V58.8001Z" fill="white"/>
                   </svg>
@@ -543,7 +738,6 @@ const Home: NextPage = () => {
               <div className={'h-[30%] bg-transparent relative z-[999]'}>
                   <div className={'absolute bg-white w-full h-5/6 rounded-l-3xl rounded-r-3xl rounded-b-none bottom-0'}></div>
                   <InventoryCards inventory={inventory} bunny={{bunny}} attachItemToBunny={attachItemToBunny} currentTab={currenTab}></InventoryCards>
-
               </div>
           </div>
       </main>

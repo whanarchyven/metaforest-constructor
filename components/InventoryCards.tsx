@@ -16,8 +16,8 @@ interface InventoryCardsInterface extends inventoryInterface {
 
 const InventoryCards = ({inventory, bunny, attachItemToBunny, currentTab}: InventoryCardsInterface) => {
     return (
-        <div className={'inventory-container'}>
-            <div className={'grid grid-cols-2 sm:grid-cols-3 gap-1 justify-around overflow-y-scroll max-h-full'}>
+        <div className={'inventory-container absolute top-0'}>
+            <div className={'grid grid-cols-3 sm:grid-cols-3 gap-1 justify-around overflow-y-scroll max-h-full'}>
                 {inventory.filter((obj: InventoryItemInterface) => {
                     return obj.type == currentTab;
                 }).map((item: InventoryItemInterface) => {
@@ -29,9 +29,9 @@ const InventoryCards = ({inventory, bunny, attachItemToBunny, currentTab}: Inven
                     }
                     return <div key={item.name} onClick={() => {
                         attachItemToBunny(currentTab, item)
-                    }} className={'auto-rows-fr min-h-[180px] flex content-center justify-center mt-3 flex-wrap cursor-pointer'}>
-                        <div className={'bg-cover w-[150px] rounded-xl h-[150px] relative bg-[url("../public/images/cards_bg.svg")]' + clas}><Image
-                            src={'/images/bunny_generation/' + item.type + '/' + item.name + '.png'}
+                    }} className={'auto-rows-fr min-h-[100px] flex content-center justify-center mt-3 flex-wrap cursor-pointer'}>
+                        <div className={'bg-cover w-[100px] rounded-xl h-[100px] relative bg-[url("../public/images/cards_bg.svg")]' + clas}><Image
+                            src={'/images/miniatures/' + item.type + '/' + item.name + '.png'}
                             layout={'fill'}></Image></div>
                         {/*<p className={'font-bold w-full text-center'}>{item.name}</p>*/}
                     </div>
