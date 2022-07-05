@@ -7,13 +7,15 @@
     grid-template-columns: repeat(12,1fr);
     grid-gap: 5em;
     overflow-x: scroll;
-    background: #565656;
+    /*background: #565656;*/
     font-size: 1.3em;
     height: 100%;
     z-index: 9999;
 }
 
-
+.grey-gradient{
+    background: linear-gradient(270deg, #FFFFFF 0%, #BFC1CD 100%);
+}
 
 .active-tab{
     color: white;

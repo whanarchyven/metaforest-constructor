@@ -10,6 +10,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background: linear-gradient(270deg, #FFFFFF 0%, #BFC1CD 100%);
 }
 
 .footer {

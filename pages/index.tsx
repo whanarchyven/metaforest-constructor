@@ -18,7 +18,7 @@ const Home: NextPage = () => {
     const initialBunny={
         background:{
             type:'background',
-            name:'',
+            name:'Standard',
         },
         base:{
             type:'base',
@@ -461,6 +461,9 @@ const Home: NextPage = () => {
             name:'Chain_s_r10'
         },{
             type:'background',
+            name:'Standard'
+        },{
+            type:'background',
             name:'White70'
         },{
             type:'background',
@@ -524,16 +527,23 @@ const Home: NextPage = () => {
 
       <main className={styles.main}>
           <div className={'w-full sm:w-[600px] h-[100vh]'}>
-              <div className={'h-[55%] flex justify-center content-center items-center'}>
+              <div className={'h-[50%] flex justify-center content-center items-center'}>
                   <div className={'w-[229px] h-[330px] sm:w-[277px] sm:h-[400px] z-10'}>
                       <BunnyGeneration bunny={bunny}></BunnyGeneration>
                   </div>
               </div>
-              <div className={'h-[5%] bg-[#565656] z-[998]'}>
-                  <CategoryBar currenTab={currenTab} setCurrentTab={changeCurrentTab}></CategoryBar>
+              <div className={'h-[12%] rounded-3xl relative z-[998]'}>
+                  <svg width="100%" height="100%" viewBox="0 0 638 155" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M637.58 58.8001V96.0801C637.58 111.672 631.386 126.626 620.361 137.651C609.336 148.676 594.382 154.87 578.79 154.87H58.79C43.1979 154.87 28.2444 148.676 17.2192 137.651C6.19391 126.626 0 111.672 0 96.0801V58.7901C0 43.198 6.19391 28.2446 17.2192 17.2193C28.2444 6.19405 43.1979 0.000132095 58.79 0.000132095H138.41C139.885 0.00339657 141.308 0.544499 142.413 1.52204C143.517 2.49959 144.227 3.84645 144.41 5.31013C145.709 15.0321 150.488 23.9538 157.861 30.4223C165.234 36.8908 174.702 40.4677 184.51 40.4901H453.05C462.864 40.4749 472.339 36.9014 479.718 30.4322C487.097 23.963 491.88 15.0372 493.18 5.31013C493.35 3.84124 494.056 2.48683 495.164 1.50685C496.271 0.52686 497.701 -0.00967458 499.18 0.000132095H578.8C594.391 0.00543525 609.342 6.20275 620.365 17.2293C631.388 28.2559 637.58 43.2089 637.58 58.8001V58.8001Z" fill="white"/>
+                  </svg>
+                  <div className={'w-full h-1/2 absolute bottom-0'}>
+                      <CategoryBar currenTab={currenTab} setCurrentTab={changeCurrentTab}></CategoryBar>
+                  </div>
               </div>
-              <div className={'h-[40%] bg-gray-500 z-[999]'}>
+              <div className={'h-[33%] bg-transparent relative z-[999]'}>
+                  <div className={'absolute bg-white w-full h-5/6 rounded-l-3xl rounded-r-3xl rounded-b-none bottom-0'}></div>
                   <InventoryCards inventory={inventory} bunny={{bunny}} attachItemToBunny={attachItemToBunny} currentTab={currenTab}></InventoryCards>
+
               </div>
           </div>
       </main>
