@@ -1,53 +1,73 @@
-import React, {useState} from 'react';
+import React, {useRef, useState} from 'react';
+// Import Swiper React components
+import {Swiper, SwiperSlide, useSwiper} from "swiper/react";
 
-
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/navigation";
+import { Pagination } from "swiper";
+import Image from "next/image";
 interface categoryBarInterface {
     currenTab: string | "background" | "base" | "eyes" | "mouth" | "left" | "right" | "necklace" | "face" | "clothes" | "hat" | "overhead" | "ears",
     setCurrentTab: (newTab: string | "background" | "base" | "eyes" | "mouth" | "left" | "right" | "necklace" | "face" | "clothes" | "hat" | "overhead" | "ears") => void,
 }
+import { Navigation } from "swiper";
+
+
 
 const CategoryBar = ({currenTab, setCurrentTab}: categoryBarInterface) => {
-    // const baseRef = React.useRef<HTMLInputElement>(null);
-    // const mouthRef = React.useRef<HTMLInputElement>(null);
-    // const eyesRef = React.useRef<HTMLInputElement>(null);
-    // const earsRef = React.useRef<HTMLInputElement>(null);
-    // const facesRef = React.useRef<HTMLInputElement>(null);
-    // const hatsRef = React.useRef<HTMLInputElement>(null);
-    // const clothesRef = React.useRef<HTMLInputElement>(null);
-    // const leftRef = React.useRef<HTMLInputElement>(null);
-    // const rightRef = React.useRef<HTMLInputElement>(null);
-    // const necklaceRef = React.useRef<HTMLInputElement>(null);
-    // const overheadRef = React.useRef<HTMLInputElement>(null);
-    // const backgroundRef = React.useRef<HTMLInputElement>(null);
 
     const tabs = ['base',
-        'eyes',
-        'ears',
-        'mouth',
         'faces',
-        'hats',
+        'ears',
+        'eyes',
+        'mouth',
         'clothes',
+        'hats',
         'left',
         'right',
         'necklace',
         'overhead',
         'background'];
 
-    const ucFirst = (str: string) => {
-        if (!str) return str;
-
-        return str[0].toUpperCase() + str.slice(1);
-    }
-
     return (
-        <div className={'tab-container'}>
-            {tabs.map(item => {
-                let clas = item == currenTab ? 'active-tab' : 'deactive-tab';
-                return (<p key={item} onClick={() => {
-                    setCurrentTab(item);
-                }} className={clas}>{ucFirst(item)}</p>)
+        // <div className={'tab-container'}>
+        //     {tabs.map(item => {
+        //         let clas = item == currenTab ? 'active-tab' : 'deactive-tab';
+        //         return (<p key={item} onClick={() => {
+        //             setCurrentTab(item);
+        //         }} className={clas}>{ucFirst(item)}</p>)
+        //     })}
+        // </div>
+        <Swiper
+            slidesPerView={8}
+            spaceBetween={0}
+            centeredSlides={true}
+            className="mySwiper"
+            onSlideChange={(swiper) => setCurrentTab(tabs[(swiper.activeIndex)])}
+            onSwiper={(swiper) => console.log(swiper)}
+            modules={[Navigation]}
+            navigation={true}
+        >
+            {tabs.map(item=>{
+                return(
+                    <SwiperSlide>
+                        {({ isActive }) => (
+                            <div className={'w-[60px] h-[60px] relative rounded-full'} key={item}>
+                                {isActive?
+                                    <div className={'w-full rounded-full h-full rounded-full'}>
+                                        <Image src={'/images/tab_icons/'+item+'.svg'} className={'rounded-full'} layout={'fill'}></Image>
+                                    </div>
+                                    :
+                                    <div className={'w-full rounded-full h-full rounded-full opacity-50 scale-75'}>
+                                        <Image src={'/images/tab_icons/'+item+'.svg'} className={'rounded-full'} layout={'fill'}></Image>
+                                    </div>}
+                            </div>
+                        )}
+                    </SwiperSlide>
+                )
             })}
-        </div>
+        </Swiper>
     );
 };
 
